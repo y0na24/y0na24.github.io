@@ -1,0 +1,27 @@
+---
+type ButtonType = 'green' | 'transparent' | 'transparent-green'
+
+type Props = {
+	type: ButtonType
+}
+
+const { type } = Astro.props
+
+const commonStyles = 'description btn'
+
+const getButtonModification = (type: ButtonType) => {
+	const btnStyles = {
+		green: 'btn--green',
+		transparent: 'btn--transparent',
+		'transparent-green': 'btn--green-transparent',
+	}
+
+	return btnStyles[type]
+}
+
+const btnClassname = `${commonStyles} ${getButtonModification(type)}`
+---
+
+<button class={btnClassname}>
+	<slot />
+</button>

@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets'
+
+import logo from 'src/assets/logo.svg'
+import burgerMenu from 'src/assets/burger-menu.svg'
+---
+
+<header class='header'>
+	<Image src={logo} alt='Логотип "Альтаир"' />
+	<Image class='burger-menu' src={burgerMenu} alt='Навигационное меню' />
+</header>
+
+<style>
+	.header {
+    height: 80px;
+		max-width: 1029px;
+		transform: translateY(19px);
+		display: flex;
+		align-items: center;
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 16px;
+		padding: 10px 24px;
+    margin-bottom: 316px;
+    margin-inline: auto;
+	}
+
+	.burger-menu {
+		margin-left: auto;
+	}
+</style>

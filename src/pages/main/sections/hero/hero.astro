@@ -1,0 +1,71 @@
+---
+import Header from '@components/Header.astro'
+import Button from 'src/shared/components/Button.astro'
+---
+
+<section class='hero container'>
+	<Header />
+	<h1 class='hero-title hero__title'>
+		Опытный производитель военной и промышленной тары
+	</h1>
+	<p class='light-description hero__description'>
+		Компания «Альтаир» — это опытный производитель военной и промышленной тары,
+		работающий в сфере дерево и металлообработки более 10 лет. Мы обеспечиваем
+		полный цикл производства: от разработки концепции до отправки изделий
+		заказчику транспортными компаниями.
+	</p>
+	<div class='button-group'>
+		<Button className='btn-1' type='green'> Оставить заявку </Button>
+		<Button className='btn-2' type='transparent'> Подробнее </Button>
+	</div>
+</section>
+
+<style>
+	.hero {
+		background-image: url('src/assets/hero.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+
+	.hero__title {
+		margin-bottom: 24px;
+	}
+
+	.hero__description {
+		margin-bottom: 25px;
+	}
+
+	.button-group {
+		display: flex;
+		gap: 24px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.button-group {
+			gap: 16px;
+		}
+	}
+</style>
+
+<style is:global>
+	.btn-1 {
+		width: 208px;
+		padding-inline: 35.5px;
+	}
+
+	.btn-2 {
+		width: 208px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.btn-1 {
+			width: initial;
+		}
+
+		.btn-2 {
+			width: initial;
+		}
+	}
+</style>

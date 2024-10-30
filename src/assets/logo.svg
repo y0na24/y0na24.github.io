@@ -1,0 +1,21 @@
+<svg width="56.000000" height="56.000000" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip3_444">
+			<rect id="Logo Container" rx="27.333334" width="54.666668" height="54.666668" transform="translate(0.666667 0.666667)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Logo Container" rx="27.333334" width="54.666668" height="54.666668" transform="translate(0.666667 0.666667)" fill="#6B8E23" fill-opacity="1.000000"/>
+	<g clip-path="url(#clip3_444)">
+		<path id="Vector" d="M55.2 25.82L54.95 24.87L54.71 25.8L55.2 25.82Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M25.74 12.36L27.9 -1.55L30.04 12.36L31.97 12.36L27.9 -14L23.82 12.36L25.74 12.36Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M15.51 42.7L10.08 46.65L13.53 41.56L15.83 34.48L1.72 55.3L19.05 42.7L15.51 42.7Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M40.61 42.73L46.04 46.68L42.58 41.59L40.28 34.52L54.39 55.33L37.06 42.73L40.61 42.73Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M16.37 32.84L17.03 30.79L-4.28 28.08L18.88 25.14L19.46 23.36L10.08 9.52L21.31 17.68L21.98 15.6L1.72 0.88L16.9 23.26L-21 28.08L16.37 32.84Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M39.62 32.72L38.96 30.68L60.27 27.97L37.11 25.02L36.53 23.24L45.91 9.4L34.68 17.57L34.01 15.49L54.27 0.76L39.09 23.15L77 27.97L39.62 32.72Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M30.68 36.63L30.54 36.63L27.89 52.1L25.24 36.63L25.12 36.63L23.82 39.21L27.89 63L31.97 39.21L30.68 36.63Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M24 14.37L32.03 14.37L40.73 41.13L33.83 41.13L32.22 35.25L23.81 35.25L22.18 41.13L15.28 41.13L24 14.37ZM25.14 30.35L30.86 30.35L28.07 20.19L27.94 20.19L25.15 30.35L25.14 30.35Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>

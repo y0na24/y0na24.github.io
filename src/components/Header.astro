@@ -1,30 +1,83 @@
 ---
 import { Image } from 'astro:assets'
+import Button from 'src/shared/components/Button.astro'
 
 import logo from 'src/assets/logo.svg'
 import burgerMenu from 'src/assets/burger-menu.svg'
+import arrowIcon from 'src/assets/arrow-icon.svg'
+import NavList from './NavList.astro'
 ---
 
-<header class='header'>
+<header class='header header__container'>
 	<Image src={logo} alt='Логотип "Альтаир"' />
 	<Image class='burger-menu' src={burgerMenu} alt='Навигационное меню' />
+
+	<NavList class='header__nav-list' />
+	<Button class='header__contactUsBtn' variant='green'>
+		<div class='header__contactUsBtn-container'>
+			<div>Связаться</div>
+			<img src={arrowIcon.src} alt='Связаться с нами' />
+		</div>
+	</Button>
 </header>
 
 <style>
 	.header {
-    height: 80px;
+		height: 80px;
 		max-width: 1029px;
 		transform: translateY(19px);
-		display: flex;
-		align-items: center;
 		background-color: rgba(255, 255, 255, 0.2);
 		border-radius: 16px;
 		padding: 10px 24px;
-    margin-bottom: 316px;
-    margin-inline: auto;
+		margin-bottom: 316px;
+		margin-inline: auto;
+	}
+
+	.header__container {
+		display: flex;
+		align-items: center;
+	}
+
+	.header__nav-list {
+		display: none;
+	}
+
+	.header__contactUsBtn {
+		display: none;
+		padding: 12px 24px;
+	}
+
+	.header__contactUsBtn-container {
+		display: flex;
+		align-items: center;
+		gap: 4px;
 	}
 
 	.burger-menu {
 		margin-left: auto;
+	}
+
+	@media screen and (min-width: 768px) {
+		.header {
+			margin-bottom: 367px;
+		}
+	}
+
+	@media screen and (min-width: 1024px) {
+		.burger-menu {
+			display: none;
+		}
+
+		.header__nav-list {
+			display: flex;
+		}
+
+		.header__container {
+			gap: 48px;
+		}
+
+		.header__contactUsBtn {
+			display: block;
+		}
 	}
 </style>

@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import NavItem from './NavItem.astro'
+
+interface Props extends HTMLAttributes<'ul'> {}
+
+const navItems = [
+	'О нас',
+	'Возможности',
+	'Виды тары',
+	'Партнёры',
+	'Мощности',
+	'Контакты',
+]
+
+const { ...props } = Astro.props
+---
+
+<nav>
+	<ul class:list={['nav-list', Astro.props.class]} {...props}>
+		{navItems.map(item => <NavItem label={item} />)}
+	</ul>
+</nav>
+
+<style>
+	.nav-list {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+</style>

@@ -1,28 +1,26 @@
 ---
-type ButtonType = 'green' | 'transparent' | 'transparent-green'
+import type { HTMLAttributes } from 'astro/types'
 
-type Props = {
-	type: ButtonType
-	className?: string
+type ButtonVariant = 'green' | 'transparent' | 'transparent-green'
+
+interface Props extends HTMLAttributes<'button'> {
+	variant: ButtonVariant
 }
 
-const { type, className } = Astro.props
-
-const commonStyles = 'description btn'
-
-const getButtonModification = (type: ButtonType) => {
-	const btnStyles = {
-		green: 'btn--green',
-		transparent: 'btn--transparent',
-		'transparent-green': 'btn--green-transparent',
-	}
-
-	return btnStyles[type]
-}
-
-const btnClassname = `${commonStyles} ${getButtonModification(type)} ${className ? className : ''}`
+const { variant, ...props } = Astro.props
 ---
 
-<button class={btnClassname}>
+<button
+	class:list={[
+		'btn',
+		{
+			'btn--green': variant === 'green',
+			'btn--transparent': variant === 'transparent',
+			'btn--green-transparent': variant === 'transparent-green',
+		},
+		Astro.props.class,
+	]}
+	{...props}
+>
 	<slot />
 </button>

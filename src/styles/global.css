@@ -4,11 +4,12 @@
 @import './reset.css';
 
 body {
-	background: #000;
 	font-family: 'Manrope', sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 500;
 	font-style: normal;
+	max-width: 1920px;
+	margin-inline: auto;
 }
 
 .container {

@@ -1,0 +1,96 @@
+---
+import Header from '@components/Header.astro'
+import Button from 'src/shared/components/Button.astro'
+---
+
+<section class='hero'>
+	<div class='container'>
+		<Header />
+		<h1 class='hero-title hero__title'>
+			Опытный производитель военной и промышленной тары
+		</h1>
+		<p class='light-description hero__description'>
+			Компания «Альтаир» — это опытный производитель военной и промышленной
+			тары, работающий в сфере дерево и металлообработки более 10 лет. Мы
+			обеспечиваем полный цикл производства: от разработки концепции до отправки
+			изделий заказчику транспортными компаниями.
+		</p>
+		<div class='button-group'>
+			<Button class='size-1' variant='green'>Оставить заявку</Button>
+			<Button class='size-2' variant='transparent'>Подробнее</Button>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		background-image: url('src/assets/hero-480.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		min-height: 800px;
+	}
+
+	.size-1 {
+		width: 208px;
+		padding-inline: 35.5px;
+	}
+
+	.size-2 {
+		width: 208px;
+	}
+
+	.hero__title {
+		margin-bottom: 24px;
+	}
+
+	.hero__description {
+		margin-bottom: 36px;
+	}
+
+	.button-group {
+		display: flex;
+		gap: 24px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.button-group {
+			gap: 16px;
+		}
+
+		.hero {
+			background-image: url('src/assets/hero-768.png');
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		.button-group {
+			gap: 16px;
+		}
+
+		.hero {
+			background-image: url('src/assets/hero-768.png');
+		}
+
+		.size-1 {
+			width: inherit;
+			padding-inline: 48px;
+		}
+
+		.size-2 {
+			width: inherit;
+		}
+	}
+
+	@media screen and (min-width: 1440px) {
+		.hero {
+			background-image: url('src/assets/hero-1440.png');
+		}
+	}
+
+	@media screen and (min-width: 1750px) {
+		.hero {
+			background-image: url('src/assets/hero-1920.png');
+		}
+	}
+</style>

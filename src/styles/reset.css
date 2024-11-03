@@ -44,3 +44,13 @@ p {
 #__next {
 	isolation: isolate;
 }
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

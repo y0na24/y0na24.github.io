@@ -1,9 +1,12 @@
 ---
 import Header from '@components/Header.astro'
+import type { HTMLAttributes } from 'astro/types'
 import Button from 'src/shared/components/Button.astro'
+
+interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section class='hero'>
+<section class:list={['hero', {}, Astro.props.class]} {...Astro.props}>
 	<div class='container'>
 		<Header />
 		<h1 class='hero-title hero__title'>
@@ -11,13 +14,21 @@ import Button from 'src/shared/components/Button.astro'
 		</h1>
 		<p class='light-description hero__description'>
 			Компания «Альтаир» — это опытный производитель военной и промышленной
-			тары, работающий в сфере дерево и металлообработки более 10 лет. Мы
-			обеспечиваем полный цикл производства: от разработки концепции до отправки
+			тары, работающий в сфере дерево и металлообработки более 10 лет.
+			<br class='divider' />
+			Мы обеспечиваем полный цикл производства: от разработки концепции до отправки
 			изделий заказчику транспортными компаниями.
 		</p>
 		<div class='button-group'>
-			<Button class='size-1' variant='green'>Оставить заявку</Button>
-			<Button class='size-2' variant='transparent'>Подробнее</Button>
+			<Button class='button-group__btn--agreement' variant='green'
+				>Оставить заявку</Button
+			>
+			<Button class='button-group__btn--agreement-sm' variant='green'
+				>Cвязаться</Button
+			>
+			<Button class='button-group__btn--details' variant='transparent'
+				>Подробнее</Button
+			>
 		</div>
 	</div>
 </section>
@@ -31,12 +42,22 @@ import Button from 'src/shared/components/Button.astro'
 		min-height: 800px;
 	}
 
-	.size-1 {
+	.divider {
+		display: none;
+	}
+
+	.button-group__btn--agreement {
+		width: 208px;
+		padding-inline: 35.5px;
+		display: none;
+	}
+
+	.button-group__btn--agreement-sm {
 		width: 208px;
 		padding-inline: 35.5px;
 	}
 
-	.size-2 {
+	.button-group__btn--details {
 		width: 208px;
 	}
 
@@ -53,13 +74,14 @@ import Button from 'src/shared/components/Button.astro'
 		gap: 24px;
 	}
 
-	@media screen and (min-width: 768px) {
-		.button-group {
-			gap: 16px;
+	@media screen and (min-width: 480px) {
+		.button-group__btn--agreement {
+			display: block;
 		}
 
-		.hero {
-			background-image: url('src/assets/hero-768.png');
+		.button-group__btn--agreement-sm {
+			display: none;
+			width: 216px;
 		}
 	}
 
@@ -72,12 +94,12 @@ import Button from 'src/shared/components/Button.astro'
 			background-image: url('src/assets/hero-768.png');
 		}
 
-		.size-1 {
+		.button-group__btn--agreement {
 			width: inherit;
 			padding-inline: 48px;
 		}
 
-		.size-2 {
+		.button-group__btn--details {
 			width: inherit;
 		}
 	}
@@ -86,11 +108,26 @@ import Button from 'src/shared/components/Button.astro'
 		.hero {
 			background-image: url('src/assets/hero-1440.png');
 		}
+
+		.hero__title,
+		.hero__description {
+			max-width: 880px;
+		}
 	}
 
 	@media screen and (min-width: 1750px) {
 		.hero {
 			background-image: url('src/assets/hero-1920.png');
+		}
+	}
+
+	@media screen and (min-width: 1920px) {
+		.hero__description {
+			max-width: 758px;
+		}
+
+		.divider {
+			display: block;
 		}
 	}
 </style>

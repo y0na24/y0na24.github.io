@@ -1,0 +1,54 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+import PossibilityList from './components/PossibilityList.astro'
+import PossibilityCard from './components/PossibilityCard.astro'
+import Button from 'src/shared/components/Button.astro'
+
+import { possibilitesCards } from './consts'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section
+	class:list={['possibilities container', Astro.props.class]}
+	{...Astro.props}
+>
+	<h2 class='title possibilities__title'>Наши возможности</h2>
+	<p class='possibilities__description description'>
+		Мы накопили обширный опыт сотрудничества как с оборонными предприятиями, так
+		и с коммерческими структурами, включая пивные заводы. Работаем со
+		специальными счетами и соблюдаем все требования безопасности и контроля.
+	</p>
+	<PossibilityList class='possibilities__cardList'>
+		{possibilitesCards.map(card => <PossibilityCard item={card} />)}
+	</PossibilityList>
+	<div class='possibilities__btn-container'>
+		<Button class="possibilities__btn" variant='green'>Оставить заявку</Button>
+	</div>
+</section>
+
+<style>
+	.possibilities__title {
+		margin-bottom: 24px;
+	}
+
+	.possibilities__description {
+		margin-bottom: 42px;
+	}
+
+	.possibilities__cardList {
+		margin-bottom: 42px;
+	}
+
+	.possibilities__btn-container {
+		display: flex;
+		justify-content: center;
+	}
+
+	.possibilities__btn {
+		padding: 24px 72px;
+		font-size: 20px;
+	}
+
+</style>

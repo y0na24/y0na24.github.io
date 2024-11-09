@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<'button'> {
 const { variant, ...props } = Astro.props
 ---
 
-<button
+<a
 	class:list={[
 		'btn',
 		{
@@ -23,4 +23,4 @@ const { variant, ...props } = Astro.props
 	{...props}
 >
 	<slot />
-</button>
+</a>

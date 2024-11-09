@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'ul'> {}
+---
+
+<ul class:list={['grid-container', Astro.props.class]} {...Astro.props}>
+	<slot />
+</ul>
+
+<style>
+	.cardList {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 32px;
+	}
+
+	.grid-container {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: repeat(1, 1fr);
+		align-items: stretch;
+		gap: 32px;
+	}
+
+	@media screen and (min-width: 1440px) {
+		.grid-container {
+			grid-template-columns: repeat(3, 400px);
+			gap: 40px;
+		}
+	}
+
+	@media screen and (min-width: 1920px) {
+		.grid-container {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 40px;
+		}
+	}
+</style>

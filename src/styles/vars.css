@@ -1,5 +1,6 @@
 :root {
 	--btn-border-radius: 4px;
+	--card-border-radius: 12px;
 	--description-color: #0000;
 	--primary-color: #6b8e23;
 	--opacity-for-light-text: 80%;

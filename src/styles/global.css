@@ -37,16 +37,23 @@ body {
 	font-weight: 700;
 }
 
+.subtitle {
+	font-size: 18px;
+	font-weight: 700;
+}
+
 .description {
 	font-size: 16px;
 	font-weight: 700;
 }
 
 .btn {
-	padding: 16px 48px;
+	padding: 10px 44px;
 	border: 0;
 	border-radius: var(--btn-border-radius);
 	cursor: pointer;
+	font-size: 13px;
+	text-align: center;
 }
 
 .btn--green {
@@ -75,6 +82,17 @@ body {
 	color: var(--primary-color);
 }
 
+@media screen and (min-width: 480px) {
+	.btn {
+		font-size: 16px;
+		padding: 16px 48px;
+	}
+
+	.subtitle {
+		font-size: 20px;
+	}
+}
+
 @media screen and (min-width: 768px) {
 	.container {
 		padding: 0 26px;
@@ -86,6 +104,14 @@ body {
 
 	.hero-title {
 		font-size: 45px;
+	}
+
+	.subtitle {
+		font-size: 28px;
+	}
+
+	.description {
+		font-size: 20px;
 	}
 }
 
@@ -104,6 +130,18 @@ body {
 
 	.hero-title {
 		font-size: 56px;
+	}
+
+	.btn {
+		font-size: 20px;
+	}
+
+	.subtitle {
+		font-size: 32px;
+	}
+
+	.description {
+		font-size: 24px;
 	}
 }
 

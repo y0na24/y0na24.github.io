@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section class:list={['options', Astro.props.class]} {...Astro.props}>
+	<div class='container'>
+		<h2 class='title options__title'>Виды производимой тары</h2>
+	</div>
+</section>
+
+<style>
+	.options {
+	}
+
+	.options__title {
+		margin-bottom: 42px;
+	}
+</style>

@@ -10,21 +10,21 @@ import { possibilitesCards } from './consts'
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section
-	class:list={['possibilities container', Astro.props.class]}
-	{...Astro.props}
->
-	<h2 class='title possibilities__title'>Наши возможности</h2>
-	<p class='possibilities__description description'>
-		Мы накопили обширный опыт сотрудничества как с оборонными предприятиями, так
-		и с коммерческими структурами, включая пивные заводы. Работаем со
-		специальными счетами и соблюдаем все требования безопасности и контроля.
-	</p>
-	<PossibilityList class='possibilities__cardList'>
-		{possibilitesCards.map(card => <PossibilityCard item={card} />)}
-	</PossibilityList>
-	<div class='possibilities__btn-container'>
-		<Button class="possibilities__btn" variant='green'>Оставить заявку</Button>
+<section class:list={['possibilities', Astro.props.class]} {...Astro.props}>
+	<div class='container'>
+		<h2 class='title possibilities__title'>Наши возможности</h2>
+		<p class='possibilities__description description'>
+			Мы накопили обширный опыт сотрудничества как с оборонными предприятиями,
+			так и с коммерческими структурами, включая пивные заводы. Работаем со
+			специальными счетами и соблюдаем все требования безопасности и контроля.
+		</p>
+		<PossibilityList class='possibilities__cardList'>
+			{possibilitesCards.map(card => <PossibilityCard item={card} />)}
+		</PossibilityList>
+		<div class='possibilities__btn-container'>
+			<Button class='possibilities__btn' variant='green'>Оставить заявку</Button
+			>
+		</div>
 	</div>
 </section>
 
@@ -49,6 +49,12 @@ interface Props extends HTMLAttributes<'section'> {}
 	.possibilities__btn {
 		padding: 24px 72px;
 		font-size: 20px;
+		margin-bottom: 36px;
+		transition: all 0.2s;
 	}
 
+	.possibilities__btn:hover {
+		color: var(--primary-color);
+		background: var(--white-color);
+	}
 </style>

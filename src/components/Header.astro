@@ -2,9 +2,8 @@
 import { Image } from 'astro:assets'
 import Button from 'src/shared/components/Button.astro'
 
-import logo from 'src/assets/logo.svg'
-import burgerMenu from 'src/assets/burger-menu.svg'
-import arrowIcon from 'src/assets/arrow-icon.svg'
+import logo from 'public/logo.svg'
+import burgerMenu from 'public/burger-menu.svg'
 import NavList from './NavList.astro'
 ---
 
@@ -64,16 +63,18 @@ import NavList from './NavList.astro'
 			height: 80px;
 			max-width: 1029px;
 			transform: translateY(19px);
+			backdrop-filter: blur(20px);
 			background-color: rgba(255, 255, 255, 0.2);
 			border-radius: 16px;
 			padding: 10px 24px;
-			margin-bottom: 170px;
+			margin-bottom: 200px;
 			margin-inline: auto;
 		}
 
 		.header__container {
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
 		}
 
 		.header__nav-list {

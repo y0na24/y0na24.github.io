@@ -10,6 +10,7 @@ body {
 	font-style: normal;
 	max-width: 1920px;
 	margin-inline: auto;
+	min-width: 360px;
 }
 
 .container {

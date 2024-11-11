@@ -2,19 +2,19 @@
 import BaseLayout from 'src/layouts/BaseLayout.astro'
 import HeroSection from './sections/hero/HeroSection.astro'
 import PossibilitiesSection from './sections/possibilities/PossibilitiesSection.astro'
+import OptionsSection from './sections/options/OptionsSection.astro'
 ---
 
 <BaseLayout title='Альтаир'>
 	<HeroSection class='heroSection' />
 	<PossibilitiesSection class='possibilitiesSection' />
+	<OptionsSection class='optionsSection' />
 </BaseLayout>
 
 <style>
-	.heroSection {
-		margin-bottom: 36px;
-	}
-
 	.possibilitiesSection {
+		padding-top: 36px;
 		margin-bottom: 50px;
+		background-color: #eeeeee;
 	}
 </style>

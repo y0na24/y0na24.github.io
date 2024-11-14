@@ -1,24 +1,53 @@
 ---
 import type { ImageMetadata } from 'astro'
 import type { HTMLAttributes } from 'astro/types'
+import type { OptionsCard } from '../types'
+import Button from 'src/shared/components/Button.astro'
 
 interface Props extends HTMLAttributes<'li'> {
-	title: string
-	description: string
-	smImgSrc: ImageMetadata['src']
-	lgImgSrc: ImageMetadata['src']
+	item: OptionsCard
 }
 
-const { title, description, smImgSrc, lgImgSrc } = Astro.props
+const {
+	item: { description, lgImgSrc, smImgSrc, title },
+} = Astro.props
 ---
 
-<li class:list={['options-card', Astro.props.class]}>
-	<img src='' alt='' />
+<li class:list={['optionsCard', Astro.props.class]}>
+	<img src={smImgSrc} alt={description} />
+	<h2 class='subtitle-xl optionsCard__subtitle'>{title}</h2>
+	<p class='light-description optionsCard__description'>{description}</p>
+	<Button class='optionsCard__btn' variant='transparent-green'>Подробнее</Button
+	>
 </li>
 
 <style>
-	.options-card {
+	.optionsCard {
+		display: flex;
+		flex-direction: column;
+		
 		background-color: #eeee;
 		padding: 18px;
+		border-radius: var(--card-border-radius);
+	}
+
+	.optionsCard img {
+		border-radius: var(--card-border-radius);
+		margin-bottom: 32px;
+	}
+
+	.optionsCard__subtitle {
+		margin-bottom: 24px;
+		text-align: start;
+	}
+
+	.optionsCard__description {
+		color: #000;
+		margin-bottom: 32px;
+	}
+
+	.optionsCard__btn {
+		width: 100%;
+		display: block;
 	}
 </style>

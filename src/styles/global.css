@@ -66,6 +66,13 @@ body {
 	background-color: transparent;
 	color: var(--primary-color);
 	border: 2px solid var(--primary-color);
+	transition: all 0.2s;
+}
+
+.btn--green-transparent:hover {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+
 }
 
 .btn--transparent {

@@ -35,7 +35,7 @@ interface Props extends HTMLAttributes<'section'> {}
 
 <style>
 	.hero {
-		background-image: url('public/hero-480.png');
+		background-image: url('/hero-480.png');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -50,15 +50,33 @@ interface Props extends HTMLAttributes<'section'> {}
 		width: 208px;
 		padding-inline: 35.5px;
 		display: none;
+		transition: all 0.2s;
+	}
+
+	.button-group__btn--agreement:hover {
+		color: var(--primary-color);
+		background: var(--white-color);
 	}
 
 	.button-group__btn--agreement-sm {
 		width: 208px;
 		padding-inline: 35.5px;
+		transition: all 0.2s;
+	}
+
+	.button-group__btn--agreement-sm:hover {
+		color: var(--primary-color);
+		background: var(--white-color);
 	}
 
 	.button-group__btn--details {
 		width: 208px;
+		transition: all 0.2s;
+	}
+
+	.button-group__btn--details:hover {
+		color: currentColor;
+		background-color: var(--white-color);
 	}
 
 	.hero__title {
@@ -91,7 +109,7 @@ interface Props extends HTMLAttributes<'section'> {}
 		}
 
 		.hero {
-			background-image: url('public/hero-768.png');
+			background-image: url('/hero-768.png');
 		}
 
 		.button-group__btn--agreement {
@@ -106,7 +124,7 @@ interface Props extends HTMLAttributes<'section'> {}
 
 	@media screen and (min-width: 1440px) {
 		.hero {
-			background-image: url('public/hero-1440.png');
+			background-image: url('/hero-1440.png');
 		}
 
 		.hero__title,
@@ -117,7 +135,7 @@ interface Props extends HTMLAttributes<'section'> {}
 
 	@media screen and (min-width: 1750px) {
 		.hero {
-			background-image: url('public/hero-1920.png');
+			background-image: url('/hero-1920.png');
 		}
 	}
 

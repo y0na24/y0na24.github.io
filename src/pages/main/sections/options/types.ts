@@ -6,4 +6,5 @@ export interface OptionsCard {
 	detailedDescription: string
 	smImgSrc: ImageMetadata['src']
 	lgImgSrc?: ImageMetadata['src']
+	mdImgSrc?: ImageMetadata['src']
 }

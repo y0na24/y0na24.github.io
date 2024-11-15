@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'astro/types'
 import OptionsList from './components/OptionsList.astro'
 import OptionsCard from './components/OptionsCard.astro'
+import Dialog from '@components/Dialog.astro'
 
 import { optionsCards } from './consts'
 
@@ -12,13 +13,21 @@ interface Props extends HTMLAttributes<'section'> {}
 	<div class='container'>
 		<h2 class='title options__title'>Виды производимой тары</h2>
 		<OptionsList>
-			{optionsCards.map(card => <OptionsCard item={card} />)}
+			{
+				optionsCards.map(card => (
+					<>
+						<OptionsCard item={card} />
+						<Dialog item={card} />
+					</>
+				))
+			}
 		</OptionsList>
 	</div>
 </section>
 
 <style>
 	.options {
+		border-radius: 20px;
 	}
 
 	.options__title {

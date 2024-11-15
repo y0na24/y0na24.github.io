@@ -2,7 +2,7 @@
 
 ---
 
-<ul class:list={['options-list', Astro.props.class]}><slot /></ul>
+<ul id="dialogParentNode" class:list={['options-list', Astro.props.class]}><slot /></ul>
 
 <style>
 	.options-list {
@@ -13,3 +13,4 @@
 		gap: 42px;
 	}
 </style>
+

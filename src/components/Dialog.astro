@@ -1,0 +1,117 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { OptionsCard } from 'src/pages/main/sections/options/types'
+
+interface Props extends HTMLAttributes<'dialog'> {
+	item: OptionsCard
+}
+
+const {
+	item: { smImgSrc, title, description, detailedDescription },
+} = Astro.props
+---
+
+<dialog id='dialog' data-dialog=`${title}`>
+	<button class='closeDialog-btn' data-closeDialogBtn=`${title}`>
+		<img src='/public/cross.svg' alt='Закрыть' />
+	</button>
+	<img src={smImgSrc} alt=`${description}` />
+	<h2 class='subtitle'>{title}</h2>
+</dialog>
+
+<style>
+	#dialog {
+		overflow: visible;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		z-index: 10;
+		padding: 20px;
+		border-radius: 16px;
+		background: rgb(249, 249, 249);
+		height: 826px;
+		width: 440px;
+	}
+
+	.closeDialog-btn {
+		position: absolute;
+		top: -55px;
+		right: 0px;
+		z-index: 20;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: var(--primary-color);
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	.closeDialog-btn:focus {
+		outline: none;
+	}
+
+	#dialog::backdrop {
+		backdrop-filter: blur(18.3px);
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	#dialog div {
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 5px;
+	}
+
+	.closeModal-btn {
+		display: none;
+	}
+
+	.closeModal-btn--active {
+		position: absolute;
+		display: block;
+	}
+</style>
+
+<script>
+	// Get all elements with the class 'optionsCard__btn'
+	const dialogButtons = document.querySelectorAll('.optionsCard__btn')
+
+	// Add click event listener to each dialog button
+	dialogButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			const dialogType = button.getAttribute('data-dialogType')
+
+			// Find the dialog that matches the data-dialog attribute
+			const dialogToOpen = document.querySelector(
+				`dialog[data-dialog="${dialogType}"]`
+			) as HTMLDialogElement
+
+			// Open the dialog if found
+			if (dialogToOpen) {
+				dialogToOpen.showModal()
+			}
+		})
+	})
+
+	// Add click event listener to close buttons within dialogs
+	const closeDialogButtons = document.querySelectorAll('.closeDialog-btn')
+	closeDialogButtons.forEach(closeButton => {
+		closeButton.addEventListener('click', () => {
+			const dialogType = closeButton.getAttribute('data-closeDialogBtn')
+
+			// Find the dialog that matches the data-closeDialogBtn attribute
+			const dialogToClose = document.querySelector(
+				`dialog[data-dialog="${dialogType}"]`
+			) as HTMLDialogElement
+
+			// Close the dialog if found
+			if (dialogToClose) {
+				dialogToClose.close()
+			}
+		})
+	})
+</script>

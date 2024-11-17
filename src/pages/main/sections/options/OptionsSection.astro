@@ -9,7 +9,7 @@ import { optionsCards } from './consts'
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section class:list={['options', Astro.props.class]} {...Astro.props}>
+<section id="Виды тары" class:list={['options', Astro.props.class]} {...Astro.props}>
 	<div class='container'>
 		<h2 class='title options__title'>Виды производимой тары</h2>
 		<OptionsList>
@@ -27,10 +27,11 @@ interface Props extends HTMLAttributes<'section'> {}
 
 <style>
 	.options {
-		border-radius: 20px;
+		border-radius: 50px;
 	}
 
 	.options__title {
+		padding-top: 50px;
 		margin-bottom: 42px;
 	}
 </style>

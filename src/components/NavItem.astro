@@ -9,7 +9,7 @@ const { label, ...props } = Astro.props
 ---
 
 <li class:list={['nav-item', Astro.props.class]} {...props}>
-	<a href='#'>
+	<a href=`#${label}`>
 		{label}
 	</a>
 </li>

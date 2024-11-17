@@ -3,6 +3,10 @@
 @import './vars.css';
 @import './reset.css';
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Manrope', sans-serif;
 	font-optical-sizing: auto;
@@ -11,6 +15,7 @@ body {
 	max-width: 1920px;
 	margin-inline: auto;
 	min-width: 360px;
+	background-color: rgb(238, 238, 238);
 }
 
 .container {

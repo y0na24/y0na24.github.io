@@ -1,0 +1,49 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section
+	id='Контакты'
+	class:list={['contacts', Astro.props.class]}
+	{...Astro.props}
+>
+	<div class='container contacts__container'>
+		<h2 class='title contacts__title'>Свяжитесь с нами</h2>
+		<form class='contacts__form'>
+			<div class='contacts__input'>
+				<label for='name'>Имя</label>
+				<input name='name' type='text' placeholder='Введите ваше имя' />
+			</div>
+
+			<div class='contacts__input'>
+				<label for='phone'>Телефон</label>
+				<input name='phone' type='tel' placeholder='Введите ваш телефон' />
+			</div>
+
+			<div class='contacts__input'>
+				<label for='message'>Сообщение</label>
+				<textarea name='message' placeholder='Введите сообщение'></textarea>
+			</div>
+		</form>
+	</div>
+</section>
+
+<style>
+	.contacts__title {
+		text-align: center;
+		margin-bottom: 42px;
+	}
+
+  .contacts__input {
+    display: flex;
+    flex-direction: column;
+  }
+
+	.contacts__form {
+		display: flex;
+		flex-direction: column;
+		gap: 42px;
+	}
+</style>

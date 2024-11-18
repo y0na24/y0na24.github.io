@@ -6,9 +6,13 @@ interface Props extends HTMLAttributes<'section'> {}
 
 <section class:list={['recomendations', Astro.props.class]} {...Astro.props}>
 	<div class='container'>
-		<h2 class='title'>Нас рекомендуют</h2>
+		<h2 class='title recomendation__title'>Нас рекомендуют</h2>
 
 	</div>
 </section>
 
-<style></style>
+<style>
+	.recomendation__title {
+		margin-bottom: 42px;
+	}
+</style>

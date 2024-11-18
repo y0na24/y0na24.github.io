@@ -5,6 +5,7 @@ import PossibilitiesSection from './sections/possibilities/PossibilitiesSection.
 import OptionsSection from './sections/options/OptionsSection.astro'
 import CapacitySection from './sections/capacity/CapacitySection.astro'
 import PartnersSection from './sections/partners/PartnersSection.astro'
+import RecomendationsSection from './sections/recomendations/RecomendationsSection.astro'
 ---
 
 <BaseLayout title='Альтаир'>
@@ -12,24 +13,37 @@ import PartnersSection from './sections/partners/PartnersSection.astro'
 	<PossibilitiesSection class='possibilitiesSection' />
 	<OptionsSection class='roundedWhiteSection' />
 	<CapacitySection class='capacitySection' />
-	<PartnersSection class='partnersSection' />
+	<PartnersSection class='partnersSection roundedWhiteSection' />
+	<RecomendationsSection />
 </BaseLayout>
 
 <style>
-	.possibilitiesSection {
-		padding-top: 36px;
-	}
-
 	.roundedWhiteSection {
 		border-radius: 40px;
 		background-color: var(--white-color);
 	}
 
 	.capacitySection {
-		padding-top: 50px;
+		padding-top: 30px;
+		margin-bottom: 30px;
 	}
 
-	.partnersSection {
-		padding-top: 96px;
+	.partnersSection,
+	.possibilitiesSection,
+	.recomendationSection {
+		padding-top: 30px;
+	}
+
+	@media screen and (min-height: 1024px) {
+		.possibilitiesSection,
+		.capacitySection,
+		.partnersSection,
+		.recomendationSection {
+			padding-top: 50px;
+		}
+
+		.capacitySection {
+			margin-bottom: 50px;
+		}
 	}
 </style>

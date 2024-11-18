@@ -1,23 +1,82 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import Swiper from './Swiper.astro'
+import company76 from 'public/75.svg'
+import dkba from 'public/dkba.svg'
+import red from 'public/red.svg'
+import metall from 'public/metall.svg'
+import sotex from 'public/sotex.svg'
+import membranium from 'public/membranium.svg'
+import elkab from 'public/elkab.svg'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
 <section class:list={['partners', Astro.props.class]} {...Astro.props}>
 	<div class='container'>
-		<Swiper />
+		<h2 class='title partners__title'>Наши партнёры</h2>
+		<div class='partners__grid'>
+			<img class='partner-1' src={company76.src} alt='Компания 76' />
+			<img class='partner-2' src={dkba.src} alt='Дкба' />
+			<img class='partner-3' src={sotex.src} alt='Sotex' />
+			<img class='red-img partner-4' src={red.src} alt='Красное сормово' />
+			<img class='metall-img partner-5' src={metall.src} alt='Металл' />
+			<img class='partner-6' src={membranium.src} alt='Мембраниум' />
+			<img class='partner-7' src={elkab.src} alt='Элкаб' />
+		</div>
 	</div>
-	<!-- <div class='partner-1'>
-		<a href='http://krsormovo.nnov.ru/'>
-			<img src={company75.src} alt='' />
-		</a>
-	</div>
-	<div class='partner-2'></div>
-	<div class='partner-3'></div>
-	<div class='partner-4'></div>
-	<div class='partner-5'></div>
-	<div class='partner-6'></div>
-	<div class='partner-7'></div> -->
+
+	<style>
+		.partners {
+			padding-bottom: 56px;
+		}
+		.partners__grid {
+			display: flex;
+			row-gap: 30px;
+			column-gap: 20px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.partners__title {
+			margin-bottom: 42px;
+		}
+
+		.red-img {
+			width: 150px;
+			height: 150px;
+		}
+
+		.metall-img {
+			width: 150px;
+			height: 150px;
+		}
+
+		.partner-1 {
+			grid-area: company76;
+		}
+
+		.partner-2 {
+			grid-area: dkba;
+		}
+
+		.partner-3 {
+			grid-area: sortex;
+		}
+
+		.partner-4 {
+			grid-area: redC;
+		}
+
+		.partner-5 {
+			grid-area: metall;
+		}
+
+		.partner-6 {
+			grid-area: membranium;
+		}
+
+		.partner-7 {
+			grid-area: elkab;
+		}
+	</style>
 </section>

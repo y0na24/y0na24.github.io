@@ -13,8 +13,8 @@ const {
 ---
 
 <li class='card' {...props}>
-	<img class='card__image card__image--sm' src={smImgSrc} alt={subtitle} />
-	<img class='card__image card__image--lg' src={lgImgSrc} alt={subtitle} />
+	<img loading="lazy" class='card__image card__image--sm' src={smImgSrc} alt={subtitle} />
+	<img loading="lazy" class='card__image card__image--lg' src={lgImgSrc} alt={subtitle} />
 	<h3 class='subtitle'>{subtitle}</h3>
 </li>
 

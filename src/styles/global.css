@@ -67,6 +67,32 @@ body {
 	color: var(--white-color);
 }
 
+.swiper-pagination-bullet-active {
+	background: var(--primary-color) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev:after {
+	font-size: 25px !important;
+	font-weight: 700 !important;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	border-radius: var(--card-border-radius) !important;
+}
+
+.swiper-slide img {
+	border-radius: var(--card-border-radius) !important;
+}
+
+.swiper-pagination-bullet {
+	width: 12px !important;
+	height: 12px !important;
+}
+
 .btn--green-transparent {
 	background-color: transparent;
 	color: var(--primary-color);

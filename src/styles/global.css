@@ -84,6 +84,10 @@ body {
 	border-radius: var(--card-border-radius) !important;
 }
 
+.swiper-slide:focus {
+	outline: none !important;
+}
+
 .swiper-slide img {
 	border-radius: var(--card-border-radius) !important;
 }

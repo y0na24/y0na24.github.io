@@ -1,4 +1,5 @@
 ---
+import BurgerSidebar from '@components/BurgerSidebar.astro'
 import Header from '@components/Header.astro'
 import type { HTMLAttributes } from 'astro/types'
 import Button from 'src/shared/components/Button.astro'
@@ -7,6 +8,7 @@ interface Props extends HTMLAttributes<'section'> {}
 ---
 
 <section class:list={['hero', Astro.props.class]} {...Astro.props}>
+	<BurgerSidebar />
 	<div class='container'>
 		<Header />
 		<h1 class='hero-title hero__title'>

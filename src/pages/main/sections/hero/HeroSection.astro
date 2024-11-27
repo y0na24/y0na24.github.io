@@ -7,7 +7,7 @@ import Button from 'src/shared/components/Button.astro'
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section class:list={['hero', Astro.props.class]} {...Astro.props}>
+<section id='О нас' class:list={['hero', Astro.props.class]} {...Astro.props}>
 	<BurgerSidebar />
 	<div class='container'>
 		<Header />
@@ -22,13 +22,13 @@ interface Props extends HTMLAttributes<'section'> {}
 			изделий заказчику транспортными компаниями.
 		</p>
 		<div class='button-group'>
-			<Button class='button-group__btn--agreement' variant='green'
+			<Button href='Контакты' class='button-group__btn--agreement' variant='green'
 				>Оставить заявку</Button
 			>
-			<Button class='button-group__btn--agreement-sm' variant='green'
+			<Button href='Контакты' class='button-group__btn--agreement-sm' variant='green'
 				>Cвязаться</Button
 			>
-			<Button class='button-group__btn--details' variant='transparent'
+			<Button href='Возможности' class='button-group__btn--details' variant='transparent'
 				>Подробнее</Button
 			>
 		</div>

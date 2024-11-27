@@ -1,0 +1,75 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'section'> {}
+
+const navItems = [
+	'О нас',
+	'Возможности',
+	'Виды тары',
+	'Мощности',
+	'Партнёры',
+	'Контакты',
+]
+---
+
+<section class:list={['footer', Astro.props.class]} {...Astro.props}>
+	<div class='container'>
+		<ul class='footer__list'>
+			{
+				navItems.map(item => (
+					<li class:list={['footer__item', Astro.props.class]}>
+						<a href={`#${item}`}>{item}</a>
+					</li>
+				))
+			}
+		</ul>
+		<div class='footer__line'></div>
+		<div class='footer__name'>© Альтаир, 2024</div>
+	</div>
+</section>
+
+<style>
+	.footer__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 24px;
+		margin-bottom: 24px;
+	}
+
+	.footer__line {
+		height: 1px;
+		background: #000;
+		width: 100%;
+		margin-bottom: 24px;
+	}
+
+	.footer__item {
+		color: black;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.footer__name {
+		color: black;
+		font-size: 16px;
+		cursor: pointer;
+		text-align: center;
+	}
+
+	.footer__item--center {
+		text-align: center;
+	}
+
+	.footer__item:hover {
+		color: var(--primary-color);
+	}
+
+	@media screen and (min-width: 1085px) {
+		.footer__item,
+		.footer__name {
+			font-size: 18px;
+		}
+	}
+</style>

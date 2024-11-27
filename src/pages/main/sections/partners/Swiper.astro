@@ -54,7 +54,6 @@ import rec8 from 'public/rec-8.png'
 				xmlns='http://www.w3.org/2000/svg'
 				xmlns:xlink='http://www.w3.org/1999/xlink'
 			>
-				<desc> Created with Pixso. </desc>
 				<defs>
 					<clipPath id='clip776_980'>
 						<rect
@@ -130,6 +129,7 @@ import rec8 from 'public/rec-8.png'
 	function openModal(recommendationSrc) {
 		const imageNode = document.createElement('img')
 		imageNode.setAttribute('src', recommendationSrc)
+
 		imageNode.onload = function () {
 			modalContent.appendChild(imageNode)
 			modal.classList.remove('modal--closed')

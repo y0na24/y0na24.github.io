@@ -8,6 +8,7 @@ import CapacitySection from './sections/capacity/CapacitySection.astro'
 import PartnersSection from './sections/partners/PartnersSection.astro'
 import RecomendationsSection from './sections/recomendations/RecomendationsSection.astro'
 import ContactsSection from './sections/contacts/ContactsSection.astro'
+import Footer from '@components/Footer.astro'
 ---
 
 <BaseLayout title='Альтаир'>
@@ -17,7 +18,8 @@ import ContactsSection from './sections/contacts/ContactsSection.astro'
 	<CapacitySection class='capacitySection' />
 	<PartnersSection class='partnersSection roundedWhiteSection' />
 	<RecomendationsSection class='recomendationSection' />
-	<ContactsSection class='roundedWhiteSection' />
+	<ContactsSection class='roundedWhiteSection contactsSection' />
+	<Footer class='roundedWhiteSection footerSection' />
 </BaseLayout>
 
 <style>
@@ -29,6 +31,15 @@ import ContactsSection from './sections/contacts/ContactsSection.astro'
 	.capacitySection {
 		padding-top: 30px;
 		margin-bottom: 30px;
+	}
+
+	.contactsSection {
+		margin-bottom: 56px;
+	}
+
+	.footerSection {
+		padding: 32px;
+		margin-bottom: 42px;
 	}
 
 	.partnersSection,

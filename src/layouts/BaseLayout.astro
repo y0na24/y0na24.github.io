@@ -1,22 +1,24 @@
 ---
 import '../styles/global.css'
+import Seo from '@components/Seo.astro'
 
 interface Props {
 	title: string
 }
-
-const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang='ru'>
 	<head>
 		<meta charset='UTF-8' />
-		<meta name='description' content='Astro description' />
 		<meta name='viewport' content='width=device-width' />
-
+		<link rel='shortcut icon' href='src/assets/logo.svg' />
 		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
+		<meta
+			name='keywords'
+			content='Производство военной тары, Промышленная тара, Тара для военной техники, Тара для промышленного оборудования, Деревянные ящики для военной техники, Упаковка для боеприпасов и оружия, Тара для ракетной техники, Упаковка для авиационного оборудования, Транспортная тара для химической продукции, Производитель промышленной тары, Герметичные контейнеры для оборудования, Тара для электрооборудования, Тара для пивоваренной продукции, Производство тары для оборонной промышленности, Изготовление металлических контейнеров, Деревянные ящики для перевозки продукции, Упаковка для пищевой промышленности, СМК и ОКВЭД производство тары, Высококачественная промышленная тара'
+		/>
+		<Seo />
 	</head>
 	<body class='wrapper'>
 		<slot />

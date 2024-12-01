@@ -2,7 +2,6 @@
 import type { HTMLAttributes } from 'astro/types'
 
 import PossibilityList from './components/PossibilityList.astro'
-import PossibilityCard from './components/PossibilityCard.astro'
 import Button from 'src/shared/components/Button.astro'
 
 import { possibilitesCards } from './consts'
@@ -23,10 +22,29 @@ interface Props extends HTMLAttributes<'section'> {}
 			специальными счетами и соблюдаем все требования безопасности и контроля.
 		</p>
 		<PossibilityList class='possibilities__cardList'>
-			{possibilitesCards.map(card => <PossibilityCard item={card} />)}
+			{
+				possibilitesCards.map(card => (
+					<li class='card'>
+						<img
+							loading='lazy'
+							class='card__image card__image--sm'
+							src={card.smImgSrc}
+							alt={card.subtitle}
+						/>
+						<img
+							loading='lazy'
+							class='card__image card__image--lg'
+							src={card.lgImgSrc}
+							alt={card.subtitle}
+						/>
+						<h3 class='subtitle'>{card.subtitle}</h3>
+					</li>
+				))
+			}
 		</PossibilityList>
 		<div class='possibilities__btn-container'>
-			<Button href='Контакты' class='possibilities__btn' variant='green'>Оставить заявку</Button
+			<Button href='Контакты' class='possibilities__btn' variant='green'
+				>Оставить заявку</Button
 			>
 		</div>
 	</div>
@@ -60,5 +78,52 @@ interface Props extends HTMLAttributes<'section'> {}
 	.possibilities__btn:hover {
 		color: var(--primary-color);
 		background: var(--white-color);
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card__image {
+		border-radius: var(--card-border-radius);
+		margin-bottom: 20px;
+		display: block;
+	}
+
+	.card__image--sm {
+		display: block;
+	}
+
+	.card__image--lg {
+		display: none;
+	}
+
+	@media screen and (min-width: 768px) {
+		.card__image--lg {
+			display: block;
+		}
+		.card__image--sm {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1440px) {
+		.card__image--lg {
+			display: none;
+		}
+		.card__image--sm {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: 1920px) {
+		.card__image--lg {
+			display: block;
+		}
+		.card__image--sm {
+			display: none;
+		}
 	}
 </style>

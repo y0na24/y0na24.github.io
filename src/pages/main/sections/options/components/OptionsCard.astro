@@ -1,41 +1,32 @@
----
+<!-- ---
 import type { HTMLAttributes } from 'astro/types'
 import type { OptionsCard } from '../types'
 import Button from 'src/shared/components/Button.astro'
-import Dialog from '@components/Dialog.astro'
+import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'li'> {
 	item: OptionsCard
 }
 
-const { item } = Astro.props
+const {
+	item: { description, smImgSrc, lgImgSrc, mdImgSrc, title },
+} = Astro.props
 ---
 
 <li class:list={['optionsCard', Astro.props.class]}>
 	<div class='flex-item flex-item--img'>
-		<img
-			class='optionsCard__imgSm'
-			src={item.smImgSrc}
-			alt={item.description}
-		/>
-		<img
-			class='optionsCard__imgMd'
-			src={item.mdImgSrc}
-			alt={item.description}
-		/>
-		<img
-			class='optionsCard__imgLg'
-			src={item.lgImgSrc}
-			alt={item.description}
-		/>
+		<img class='optionsCard__imgSm' alt={description} src={smImgSrc.src} />
+		<img class='optionsCard__imgSm' src={smImgSrc.src} alt={description} />
+		<img class='optionsCard__imgMd' src={mdImgSrc.src} alt={description} />
+		<img class='optionsCard__imgLg' src={lgImgSrc.src} alt={description} />
 	</div>
 	<div class='flex-item'>
-		<h2 class='subtitle-xl optionsCard__subtitle'>{item.title}</h2>
-		<p class='light-description optionsCard__description'>{item.description}</p>
+		<h2 class='subtitle-xl optionsCard__subtitle'>{title}</h2>
+		<p class='light-description optionsCard__description'>{description}</p>
 		<Button
 			class='optionsCard__btn'
 			id={`openDialog-btn`}
-			data-dialogType=`${item.title}`
+			data-dialogType=`${title}`
 			variant='transparent-green'>Подробнее</Button
 		>
 	</div>
@@ -139,4 +130,4 @@ const { item } = Astro.props
 			max-width: 1920px;
 		}
 	}
-</style>
+</style> -->

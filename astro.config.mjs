@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import sitemap from 'astro-sitemap'
 
 const HOST = 4321
 const LIVE_URL = 'https://y0na24.github.io'
@@ -13,6 +14,7 @@ if (isBuild) {
 
 // https://astro.build/config
 export default defineConfig({
+	integrations: [sitemap()],
 	redirects: {
 		'/': '/main',
 	},

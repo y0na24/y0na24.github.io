@@ -2,6 +2,8 @@
 import type { HTMLAttributes } from 'astro/types'
 import type { OptionsCard } from 'src/pages/main/sections/options/types'
 
+import cross from 'src/assets/cross.svg'
+
 interface Props extends HTMLAttributes<'dialog'> {
 	item: OptionsCard
 }
@@ -14,7 +16,7 @@ const {
 <dialog id='dialog' data-dialog=`${title}`>
 	<div class='dialog__container'>
 		<button class='closeDialog-btn' data-closeDialogBtn=`${title}`>
-			<img src='src/assets/cross.svg' alt='Закрыть' />
+			<img src={cross.src} alt='Закрыть' />
 		</button>
 		<img class='dialog-img' src={smImgSrc.src} alt=`${description}` />
 		<div class='dialog-right-block' style='padding: 0;'>

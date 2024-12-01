@@ -98,7 +98,7 @@ import rec8 from 'src/assets/rec-8.png'
 	src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'></script>
 
 <script is:inline>
-	new Swiper('.swiper-container', {
+	const swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		spaceBetween: 10,
 
@@ -114,7 +114,7 @@ import rec8 from 'src/assets/rec-8.png'
 			720: {
 				slidesPerView: 2,
 			},
-			1220: {
+			1024: {
 				slidesPerView: 3,
 			},
 			1440: {
@@ -123,33 +123,23 @@ import rec8 from 'src/assets/rec-8.png'
 		},
 	})
 
-	const modal = document.getElementById('modal')
-	const modalContent = modal.querySelector('.modal-content')
-
-	function openModal(recommendationSrc) {
-		const imageNode = document.createElement('img')
-		imageNode.setAttribute('src', recommendationSrc)
-
-		imageNode.onload = function () {
-			modalContent.appendChild(imageNode)
-			modal.classList.remove('modal--closed')
-			modal.classList.add('modal--active')
-		}
-	}
-
-	function closeModal() {
-		modal.classList.remove('modal--active')
-		modal.classList.add('modal--closed')
-		modalContent.querySelector('img').remove()
-	}
-
 	const swiperSlides = document.querySelectorAll('.swiper-slide')
 	swiperSlides.forEach(function (slide) {
 		slide.addEventListener('click', function (e) {
-			const recommendationSrc = e.target.src
-			openModal(recommendationSrc)
+			window.open(e.target.src, '_blank')
 		})
 	})
+
+	function updateSwiperTouchMove() {
+		if (window.innerWidth > 1024) {
+			swiper.allowTouchMove = false
+		} else {
+			swiper.allowTouchMove = true
+		}
+	}
+
+	// Обновляем на старте
+	updateSwiperTouchMove()
 </script>
 
 <style>
@@ -260,9 +250,6 @@ import rec8 from 'src/assets/rec-8.png'
 	}
 
 	@media screen and (min-width: 1024px) {
-	}
-
-	@media screen and (min-width: 1440px) {
 		.swiper-button-next,
 		.swiper-button-prev {
 			display: flex;
@@ -273,7 +260,9 @@ import rec8 from 'src/assets/rec-8.png'
 		.swiper-pagination {
 			display: none;
 		}
+	}
 
+	@media screen and (min-width: 1440px) {
 		.ui-swiper {
 			margin-bottom: 0;
 		}

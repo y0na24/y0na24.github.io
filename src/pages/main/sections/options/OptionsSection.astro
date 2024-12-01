@@ -1,22 +1,123 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import OptionsList from './components/OptionsList.astro'
-import OptionsCard from './components/OptionsCard.astro'
+import OptionsCardUI from './components/OptionsCard.astro'
 import Dialog from '@components/Dialog.astro'
 
-import { optionsCards } from './consts'
+import type { OptionsCard } from './types'
+
+import drumsSm from 'src/assets/drums-sm.png'
+import drumsLg from 'src/assets/drums-768.png'
+import drumsMd from 'src/assets/drums-1440.png'
+
+import woodenBoxSm from 'src/assets/wooden-480.png'
+import woodenBoxLg from 'src/assets/wooden-768.png'
+import woodenBoxMd from 'src/assets/wooden-1440.png'
+
+import woodenBox2sm from 'src/assets/wooden-2-480.png'
+import woodenBox2lg from 'src/assets/wooden-2-768.png'
+import woodenBox2md from 'src/assets/wooden-2-1440.png'
+
+import armyBoxSm from 'src/assets/army-480.png'
+import armyBoxLg from 'src/assets/army-768.png'
+import armyBoxMd from 'src/assets/army-1440.png'
+import Button from 'src/shared/components/Button.astro'
+
+const optionsCards: OptionsCard[] = [
+	{
+		description:
+			'Мы предлагаем барабаны из фанеры и картона, сочетающие прочность с лёгкостью. Эти изделия компактны и экологичны, их можно использовать повторно.',
+		smImgSrc: drumsSm,
+		lgImgSrc: drumsLg,
+		mdImgSrc: drumsMd,
+		title: 'Фанерные кабельные барабаны',
+		detailedDescription:
+			'Мы производим барабаны различных размеров до 1500 мм, сертифицированные для экспорта, без необходимости фитосанитарной обработки.',
+	},
+	{
+		description:
+			'Компания предлагает широкий ассортимент ящиков из плитных материалов, отличающихся лёгкостью и прочностью.',
+		detailedDescription:
+			'Плитный материал обладает рядом преимуществ: он защищает груз от влаги, механических повреждений и ультрафиолетовых лучей, при этом ящики просты в использовании и транспортировке.',
+		smImgSrc: woodenBoxSm,
+		lgImgSrc: woodenBoxLg,
+		mdImgSrc: woodenBoxMd,
+		title: 'Тара из плитных материалов: фанера, OSB, МДФ',
+	},
+	{
+		description:
+			'Мы накопили обширный опыт в изготовлении деревянных ящиков, используя чертежи заказчика, соблюдая все необходимые стандарты и сроки изготовления.',
+		smImgSrc: woodenBox2sm,
+		lgImgSrc: woodenBox2lg,
+		mdImgSrc: woodenBox2md,
+		title: 'Производство деревянных ящиков: прочность и надёжность',
+		detailedDescription:
+			'Строгий контроль качества материала с момента заготовки древесины. Фумигация изделий для экспортных отгрузок строго по Гост. По требованиям заказчика, мы готовы произвести покрасочные работы любыми видами материалов. ',
+	},
+	{
+		description:
+			'Военная тара отличается высокой прочностью и устойчивостью к механическим повреждениям, поскольку она предназначена для перевозки оружия, боеприпасов и других специфических грузов.',
+		smImgSrc: armyBoxSm,
+		lgImgSrc: armyBoxLg,
+		mdImgSrc: armyBoxMd,
+		title: 'Военная тара',
+		detailedDescription:
+			'Для её производства используются только высококачественные материалы, такие как массив сосны или фанера. Конструкция дополнительно укрепляется металлическими элементами для увеличения надёжности. Изготовление военной тары и ложементов может быть стандартным, в соответствии с ГОСТом, или индивидуальным — по запросам заказчика. Большой опыт нашей компании позволяет разработать чертежи ящиков, подобрать материалы и произвести необходимую партию строго в оговоренные сроки.',
+	},
+]
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section id="Виды тары" class:list={['options', Astro.props.class]} {...Astro.props}>
+<section
+	id='Виды тары'
+	class:list={['options', Astro.props.class]}
+	{...Astro.props}
+>
 	<div class='container'>
 		<h2 class='title options__title'>Виды производимой тары</h2>
 		<OptionsList>
 			{
 				optionsCards.map(card => (
 					<>
-						<OptionsCard item={card} />
+						<li class:list={['optionsCard', Astro.props.class]}>
+							<div class='flex-item flex-item--img'>
+								<img
+									class='optionsCard__imgSm'
+									alt={card.description}
+									src={card.smImgSrc.src}
+								/>
+								<img
+									class='optionsCard__imgSm'
+									src={card.smImgSrc.src}
+									alt={card.description}
+								/>
+								<img
+									class='optionsCard__imgMd'
+									src={card.mdImgSrc.src}
+									alt={card.description}
+								/>
+								<img
+									class='optionsCard__imgLg'
+									src={card.lgImgSrc.src}
+									alt={card.description}
+								/>
+							</div>
+							<div class='flex-item'>
+								<h2 class='subtitle-xl optionsCard__subtitle'>{card.title}</h2>
+								<p class='light-description optionsCard__description'>
+									{card.description}
+								</p>
+								<Button
+									class='optionsCard__btn'
+									id={`openDialog-btn`}
+									data-dialogType={`${card.title}`}
+									variant='transparent-green'
+								>
+									Подробнее
+								</Button>
+							</div>
+						</li>
 						<Dialog item={card} />
 					</>
 				))
@@ -33,5 +134,103 @@ interface Props extends HTMLAttributes<'section'> {}
 	.options__title {
 		padding-top: 50px;
 		margin-bottom: 42px;
+	}
+
+	.optionsCard {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #eeee;
+		padding: 18px;
+		border-radius: var(--card-border-radius);
+		max-width: 716px;
+	}
+
+	.optionsCard__imgSm {
+		display: block;
+	}
+
+	.optionsCard__imgLg {
+		display: none;
+	}
+
+	.optionsCard__imgMd {
+		display: none;
+	}
+
+	.optionsCard img {
+		border-radius: var(--card-border-radius);
+		margin-bottom: 32px;
+	}
+
+	.optionsCard__subtitle {
+		margin-bottom: 24px;
+		text-align: start;
+	}
+
+	.optionsCard__description {
+		color: #000;
+		margin-bottom: 32px;
+	}
+
+	.optionsCard__btn {
+		width: 100%;
+		display: block;
+	}
+
+	@media screen and (min-width: 768px) {
+		.optionsCard__imgLg {
+			display: block;
+		}
+
+		.optionsCard__imgSm {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1440px) {
+		.optionsCard {
+			max-width: 1264px;
+			flex-direction: row;
+			gap: 32px;
+			padding: 28px;
+		}
+
+		.flex-item {
+			width: 50%;
+			flex: 1;
+		}
+
+		.optionsCard img {
+			margin-bottom: 0px;
+		}
+
+		.optionsCard__btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: inherit;
+			width: 150px;
+			height: 49px;
+			font-size: 18px;
+		}
+
+		.optionsCard__imgMd {
+			display: block;
+			height: 336px;
+			width: 100%;
+			object-position: top;
+		}
+
+		.optionsCard__imgLg {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1720px) {
+		.optionsCard {
+			max-width: 1920px;
+		}
 	}
 </style>

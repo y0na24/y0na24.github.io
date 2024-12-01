@@ -1,22 +1,22 @@
 import type { CardItem } from './types'
 
-import fullCycleImgSm from 'public/full-cycle.png'
-import fullCycleImglg from 'public/full-cycle-big.png'
+import fullCycleImgSm from 'src/assets/full-cycle.png'
+import fullCycleImglg from 'src/assets/full-cycle-big.png'
 
-import drawingDevelopmentSm from 'public/drawing-development.png'
-import drawingDevelopmentLg from 'public/drawing-development-big.png'
+import drawingDevelopmentSm from 'src/assets/drawing-development.png'
+import drawingDevelopmentLg from 'src/assets/drawing-development-big.png'
 
-import supplymentSm from 'public/supply.png'
-import supplymentLg from 'public/supply-big.png'
+import supplymentSm from 'src/assets/supply.png'
+import supplymentLg from 'src/assets/supply-big.png'
 
-import fumigationSm from 'public/fumigation.png'
-import fumigationLg from 'public/fumigation-big.png'
+import fumigationSm from 'src/assets/fumigation.png'
+import fumigationLg from 'src/assets/fumigation-big.png'
 
-import modernEquipmentSm from 'public/modern-equipment.png'
-import modernEquipmentLg from 'public/modern-equipment-big.png'
+import modernEquipmentSm from 'src/assets/modern-equipment.png'
+import modernEquipmentLg from 'src/assets/modern-equipment-big.png'
 
-import handshakeSm from 'public/handshake.png'
-import handshakeLg from 'public/handshake-big.png'
+import handshakeSm from 'src/assets/handshake.png'
+import handshakeLg from 'src/assets/handshake-big.png'
 
 export const possibilitesCards: CardItem[] = [
 	{

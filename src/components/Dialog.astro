@@ -1,0 +1,189 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { OptionsCard } from 'src/pages/main/sections/options/types'
+
+interface Props extends HTMLAttributes<'dialog'> {
+	item: OptionsCard
+}
+
+const {
+	item: { smImgSrc, title, description, detailedDescription },
+} = Astro.props
+---
+
+<dialog id='dialog' data-dialog=`${title}`>
+	<div class='dialog__container'>
+		<button class='closeDialog-btn' data-closeDialogBtn=`${title}`>
+			<img src='/cross.svg' alt='Закрыть' />
+		</button>
+		<img class='dialog-img' src={smImgSrc} alt=`${description}` />
+		<div class='dialog-right-block' style='padding: 0;'>
+			<h2 class='dialog-subtitle'>{title}</h2>
+			{
+				title !== 'Военная тара' && (
+					<p class='dialog-description'>{description}</p>
+				)
+			}
+			<p class='dialog-description'>{detailedDescription}</p>
+		</div>
+	</div>
+</dialog>
+
+<style>
+	#dialog {
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+	}
+
+	.dialog-subtitle,
+	.dialog-description:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	.dialog-img {
+		border-radius: var(--card-border-radius);
+		width: 300px;
+		height: 300px;
+		margin-bottom: 12px;
+	}
+
+	.dialog-description {
+		font-weight: 500;
+		font-size: 16px;
+	}
+
+	.dialog-subtitle {
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+	.dialog__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow: visible;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		padding: 20px;
+		border-radius: var(--card-border-radius) !important;
+		background: rgb(249, 249, 249);
+		width: 350px;
+	}
+
+	.closeDialog-btn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 20;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: var(--primary-color);
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		outline: none;
+		border: none;
+	}
+
+	.closeDialog-btn:focus {
+		outline: none;
+	}
+
+	#dialog::backdrop {
+		backdrop-filter: blur(18.3px);
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	#dialog div {
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 5px;
+	}
+
+	.closeModal-btn {
+		display: none;
+	}
+
+	.closeModal-btn--active {
+		position: absolute;
+		display: block;
+	}
+
+	@media screen and (min-width: 1440px) {
+		.dialog__container {
+			flex-direction: row;
+			align-items: start;
+			gap: 24px;
+			width: 800px;
+		}
+
+		.dialog-subtitle {
+			font-size: 26px;
+			line-height: 30px;
+		}
+
+		.dialog-img {
+			width: fit-content;
+			height: fit-content;
+		}
+
+		.dialog-description {
+			font-weight: 500;
+			font-size: 22px;
+		}
+
+		.closeDialog-btn {
+			top: -55px;
+			right: 0px;
+		}
+	}
+
+	@media screen and (min-width: 1720px) {
+		.dialog__container {
+			flex-direction: row;
+			align-items: start;
+			gap: 32px;
+			width: fit-content;
+		}
+	}
+</style>
+
+<script>
+	const dialogButtons = document.querySelectorAll('.optionsCard__btn')
+
+	dialogButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			const dialogType = button.getAttribute('data-dialogType')
+
+			const dialogToOpen = document.querySelector(
+				`dialog[data-dialog="${dialogType}"]`
+			) as HTMLDialogElement
+
+			if (dialogToOpen) {
+				dialogToOpen.showModal()
+			}
+		})
+	})
+
+	const closeDialogButtons = document.querySelectorAll('.closeDialog-btn')
+	closeDialogButtons.forEach(closeButton => {
+		closeButton.addEventListener('click', () => {
+			const dialogType = closeButton.getAttribute('data-closeDialogBtn')
+
+			const dialogToClose = document.querySelector(
+				`dialog[data-dialog="${dialogType}"]`
+			) as HTMLDialogElement
+
+			if (dialogToClose) {
+				dialogToClose.close()
+			}
+		})
+	})
+</script>

@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets'
+import Button from 'src/shared/components/Button.astro'
+
+import logo from 'public/logo.svg'
+---
+
+<div class='overlay'></div>
+<div class='sidebar'>
+	<div class='sidebar__header'>
+		<Image src={logo} alt='Логотип "Альтаир"' />
+		<button class='sidebar__closeBtn'>
+			<img src='/cross.svg' alt='Закрыть' />
+		</button>
+	</div>
+	<ul class='sidebar__nav'>
+		<li class='sidebar__nav-item'>
+			<a href='#О нас'>О нас</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+		<li class='sidebar__nav-item'>
+			<a href='#Возможности'>Возможности</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+		<li class='sidebar__nav-item'>
+			<a href='#Виды тары'>Виды тары</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+		<li class='sidebar__nav-item'>
+			<a href='#Партнёры'>Партнёры</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+		<li class='sidebar__nav-item'>
+			<a href='#Мощности'>Мощности</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+		<li class='sidebar__nav-item'>
+			<a href='#Контакты'>Контакты</a>
+			<img src='/slash.svg' alt='' />
+		</li>
+	</ul>
+	<Button class='sidebar__btn' href='Контакты' variant='green'
+		>Оставить заявку</Button
+	>
+</div>
+
+<style>
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.37);
+		z-index: 50;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 0.3s;
+	}
+
+	.overlay--show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.sidebar__closeBtn {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: var(--primary-color);
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		outline: none;
+		border: none;
+	}
+
+	.sidebar {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background: rgb(238, 238, 238);
+		z-index: 100;
+		width: 70%;
+		transform: translateX(100%);
+		transition: all 0.3s;
+		padding: 48px 26px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.sidebar__nav {
+		margin-left: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		gap: 20px;
+	}
+
+	.sidebar__nav-item {
+		font-size: 32px;
+		font-weight: 700;
+		display: flex;
+		gap: 24px;
+	}
+
+	.sidebar__nav-item img {
+		display: none;
+	}
+
+	.sidebar__btn {
+		font-size: 16px;
+		padding: 16px 48px;
+	}
+
+	.sidebar__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.sidebar--open {
+		transform: translateX(0%);
+	}
+
+	@media screen and (min-width: 550px) {
+		.sidebar__nav-item img {
+			display: block;
+			font-size: 38px;
+		}
+	}
+</style>
+
+<script>
+	const burgerMenuBtn = document.querySelector('.burger-menu')
+	const sidebar = document.querySelector('.sidebar')
+	const closeBtn = sidebar.querySelector('.sidebar__closeBtn')
+	const sidebarBtn = sidebar.querySelector('.sidebar__btn')
+	const overlay = document.querySelector('.overlay')
+	const navItems = sidebar.querySelectorAll('.sidebar__nav-item')
+
+	burgerMenuBtn.addEventListener('click', () => {
+		sidebar.classList.add('sidebar--open')
+		overlay.classList.add('overlay--show')
+	})
+
+	navItems.forEach(item => closeSidebarByClick(item))
+	closeSidebarByClick(sidebarBtn)
+	closeSidebarByClick(closeBtn)
+
+	document.addEventListener('click', event => {
+		const target = event.target as Node
+
+		if (!sidebar.contains(target) && event.target !== burgerMenuBtn) {
+			sidebar.classList.remove('sidebar--open')
+			overlay.classList.remove('overlay--show')
+		}
+	})
+
+	function closeSidebarByClick(target: Element) {
+		target.addEventListener('click', () => {
+			sidebar.classList.remove('sidebar--open')
+			overlay.classList.remove('overlay--show')
+		})
+	}
+</script>

@@ -2,27 +2,41 @@
 import type { HTMLAttributes } from 'astro/types'
 import type { OptionsCard } from '../types'
 import Button from 'src/shared/components/Button.astro'
+import Dialog from '@components/Dialog.astro'
 
 interface Props extends HTMLAttributes<'li'> {
 	item: OptionsCard
 }
 
-const {
-	item: { description, lgImgSrc, smImgSrc, mdImgSrc, title },
-} = Astro.props
+const { item } = Astro.props
 ---
 
 <li class:list={['optionsCard', Astro.props.class]}>
 	<div class='flex-item flex-item--img'>
-		<img class='optionsCard__imgSm' src={smImgSrc} alt={description} />
-		<img class='optionsCard__imgMd' src={mdImgSrc} alt={description} />
-		<img class='optionsCard__imgLg' src={lgImgSrc} alt={description} />
+		<img
+			class='optionsCard__imgSm'
+			src={item.smImgSrc}
+			alt={item.description}
+		/>
+		<img
+			class='optionsCard__imgMd'
+			src={item.mdImgSrc}
+			alt={item.description}
+		/>
+		<img
+			class='optionsCard__imgLg'
+			src={item.lgImgSrc}
+			alt={item.description}
+		/>
 	</div>
 	<div class='flex-item'>
-		<h2 class='subtitle-xl optionsCard__subtitle'>{title}</h2>
-		<p class='light-description optionsCard__description'>{description}</p>
-		<Button class='optionsCard__btn' variant='transparent-green'
-			>Подробнее</Button
+		<h2 class='subtitle-xl optionsCard__subtitle'>{item.title}</h2>
+		<p class='light-description optionsCard__description'>{item.description}</p>
+		<Button
+			class='optionsCard__btn'
+			id={`openDialog-btn`}
+			data-dialogType=`${item.title}`
+			variant='transparent-green'>Подробнее</Button
 		>
 	</div>
 </li>
@@ -86,34 +100,43 @@ const {
 			max-width: 1264px;
 			flex-direction: row;
 			gap: 32px;
-			padding: 32px;
+			padding: 28px;
 		}
 
 		.flex-item {
-			flex: 1;
 			width: 50%;
+			flex: 1;
 		}
 
 		.optionsCard img {
 			margin-bottom: 0px;
 		}
 
-		.flex-item--img {
-		}
-
 		.optionsCard__btn {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			width: inherit;
+			width: 150px;
+			height: 49px;
+			font-size: 18px;
 		}
 
 		.optionsCard__imgMd {
 			display: block;
 			height: 336px;
 			width: 100%;
+			object-position: top;
 		}
 
 		.optionsCard__imgLg {
 			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1720px) {
+		.optionsCard {
+			max-width: 1920px;
 		}
 	}
 </style>

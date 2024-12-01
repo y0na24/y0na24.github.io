@@ -10,7 +10,11 @@ import { possibilitesCards } from './consts'
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section class:list={['possibilities', Astro.props.class]} {...Astro.props}>
+<section
+	id='Возможности'
+	class:list={['possibilities', Astro.props.class]}
+	{...Astro.props}
+>
 	<div class='container'>
 		<h2 class='title possibilities__title'>Наши возможности</h2>
 		<p class='possibilities__description description'>
@@ -22,7 +26,7 @@ interface Props extends HTMLAttributes<'section'> {}
 			{possibilitesCards.map(card => <PossibilityCard item={card} />)}
 		</PossibilityList>
 		<div class='possibilities__btn-container'>
-			<Button class='possibilities__btn' variant='green'>Оставить заявку</Button
+			<Button href='Контакты' class='possibilities__btn' variant='green'>Оставить заявку</Button
 			>
 		</div>
 	</div>

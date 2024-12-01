@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import Swiper from '../partners/Swiper.astro'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section class:list={['recomendations', Astro.props.class]} {...Astro.props}>
+	<div class='container'>
+		<h2 class='title recomendation__title'>Нас рекомендуют</h2>
+		<Swiper />
+	</div>
+</section>
+
+<style>
+	.recomendation__title {
+		margin-bottom: 42px;
+	}
+	section {
+		margin-bottom: 56px;
+	}
+</style>

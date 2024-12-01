@@ -1,0 +1,189 @@
+---
+import TextField from '@components/TextField.astro'
+import type { HTMLAttributes } from 'astro/types'
+import Button from 'src/shared/components/Button.astro'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section
+	id='Контакты'
+	class:list={['contacts', Astro.props.class]}
+	{...Astro.props}
+>
+	<div class='container contacts__container'>
+		<h2 class='title contacts__title'>Свяжитесь с нами</h2>
+		<h2 class='subtitle-xl contacts__subtitle'>
+			<a href='tel:+79601700759'>+7 (960) 170-07-59</a>,
+			<a href='mailto:info_altair@mail.ru'> info_altair@mail.ru</a>
+		</h2>
+		<form
+			class='contacts__form'
+			action='https://formspree.io/f/xqakdjnd'
+			method='post'
+		>
+			<TextField name='name' placeholder='Введите ваше имя' label='Имя' />
+			<TextField
+				name='telephone'
+				placeholder='Введите ваш телефон'
+				label='Телефон'
+			/>
+			<TextField
+				name='message'
+				placeholder='Введите сообщение'
+				label='Сообщение'
+				isTextArea
+			/>
+			<button type='submit' class='btn--green btn contacts__btn'
+				>Отправить</button
+			>
+		</form>
+	</div>
+</section>
+
+<script>
+	const form = document.querySelector('.contacts__form') as HTMLFormElement
+
+	let userData = {
+		name: '',
+		telephone: '',
+		message: '',
+	}
+
+	function setFormBindings() {
+		userData = new Proxy(userData, {
+			set(target, prop, value) {
+				target[prop] = value
+				form.elements[prop].value = value
+
+				return true
+			},
+		})
+
+		Array.from(form.elements).forEach((element: HTMLInputElement) => {
+			element.addEventListener('change', () => {
+				userData[element.name] = element.value
+			})
+		})
+	}
+
+	const validationHandler = () => {
+		let errors = {
+			name: {
+				isError: false,
+				message: 'Введите имя',
+			},
+			telephone: {
+				isError: false,
+				message: 'Введите телефон',
+			},
+			message: {
+				isError: false,
+				message: 'Введите сообщение',
+			},
+		}
+
+		function getErrors() {
+			if (!userData.telephone) {
+				errors.telephone.isError = true
+			}
+
+			if (!userData.name) {
+				errors.name.isError = true
+			}
+
+			if (!userData.message) {
+				errors.message.isError = true
+			}
+
+			return errors
+		}
+
+		function cleanErrors() {
+			Object.keys(errors).forEach(key => {
+				if (!errors[key].isError) {
+					const errorElement = document.querySelector(`[data-error="${key}"]`)
+					errorElement.innerHTML = ''
+				}
+			})
+		}
+
+		return {
+			getErrors,
+			cleanErrors,
+		}
+	}
+
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault()
+		const target = event.target as HTMLFormElement
+		let isError = false
+
+		const { getErrors, cleanErrors } = validationHandler()
+
+		cleanErrors()
+		const errors = getErrors()
+
+		Object.keys(errors).forEach(key => {
+			if (errors[key].isError) {
+				const field = errors[key]
+				const errorElement = document.querySelector(`[data-error="${key}"]`)
+				errorElement.innerHTML = field.message
+				isError = true
+			}
+		})
+
+		if (isError) return
+
+		form.reset()
+		const data = new FormData(target)
+		fetch(target.action, {
+			method: form.method,
+			body: data,
+			headers: {
+				Accept: 'application/json',
+			},
+		})
+			.then(response => {
+				if (response.ok) {
+					cleanErrors()
+				}
+			})
+			.catch(() => {
+				alert('Произошла ошибка при отправке формы')
+			})
+	}
+
+	setFormBindings()
+	form.addEventListener('submit', handleSubmit)
+</script>
+
+<style>
+	.contacts__title {
+		text-align: center;
+		padding-top: 36px;
+	}
+
+	.contacts__btn {
+		margin-bottom: 36px;
+		font-size: 16px;
+		padding: 16px 48px;
+	}
+
+	.contacts__subtitle {
+		text-align: center;
+		margin-bottom: 42px;
+	}
+
+	.contracts__subtitle {
+		margin-bottom: 15px;
+	}
+	.contacts__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.contacts__btn {
+		margin-bottom: 36px;
+	}
+</style>

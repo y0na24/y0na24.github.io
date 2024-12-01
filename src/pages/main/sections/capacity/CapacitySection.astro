@@ -1,0 +1,93 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import square from 'public/square.svg'
+import territory from 'public/territory.svg'
+import equipment from 'public/equipment-park.svg'
+
+interface Props extends HTMLAttributes<'section'> {}
+---
+
+<section id="Мощности" class:list={['capacity', Astro.props.class]} {...Astro.props}>
+	<div class='container'>
+		<h2 class='title capacity__title'>Наши мощности</h2>
+		<p class='description capacity__description'>
+			Компания «Альтаир» всегда ориентирована на высокое качество продукции и
+			долговременные партнёрские отношения с нашими клиентами. Мы готовы
+			предложить эффективные и надёжные решения для любых задач по производству
+			военной и промышленной тары.
+		</p>
+		<ul class='capacity__list'>
+			<li class='capacity__item'>
+				<img src={square.src} alt='Проиводственная площадь' />
+				<p class='capacity__item-text subtitle'>
+					Производственная площадь: 2600 кв.м.
+				</p>
+			</li>
+			<li class='capacity__item'>
+				<img src={territory.src} alt='Прилегающая территория' />
+				<p class='capacity__item-text subtitle'>
+					Прилегающая территория: 0,5 гектара
+				</p>
+			</li>
+			<li class='capacity__item'>
+				<img src={equipment.src} alt='Парк оборудования' />
+				<p class='capacity__item-text subtitle'>
+					Парк оборудования: для выполнения сложных задач
+				</p>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+	.capacity__title {
+		margin-bottom: 24px;
+	}
+
+	img {
+		width: 100px;
+		height: 100px;
+	}
+	.capacity__list {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 24px;
+	}
+
+	.capacity__item {
+		display: flex;
+		align-items: center;
+		padding: 24px;
+		gap: 42px;
+		background-color: var(--white-color);
+		border-radius: 20px;
+	}
+
+	.capacity__item-text {
+		font-weight: 700;
+	}
+
+	.capacity__description {
+		font-weight: 700;
+		margin-bottom: 42px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		.capacity__list {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.capacity__item {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.capacity__item-text {
+			text-align: center;
+		}
+
+		img {
+			width: 150px;
+			height: 150px;
+		}
+	}
+</style>

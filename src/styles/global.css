@@ -3,6 +3,10 @@
 @import './vars.css';
 @import './reset.css';
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Manrope', sans-serif;
 	font-optical-sizing: auto;
@@ -11,6 +15,7 @@ body {
 	max-width: 1920px;
 	margin-inline: auto;
 	min-width: 360px;
+	background-color: rgb(238, 238, 238);
 }
 
 .container {
@@ -62,6 +67,36 @@ body {
 	color: var(--white-color);
 }
 
+.swiper-pagination-bullet-active {
+	background: var(--primary-color) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev:after {
+	font-size: 25px !important;
+	font-weight: 700 !important;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	border-radius: var(--card-border-radius) !important;
+}
+
+.swiper-slide:focus {
+	outline: none !important;
+}
+
+.swiper-slide img {
+	border-radius: var(--card-border-radius) !important;
+}
+
+.swiper-pagination-bullet {
+	width: 12px !important;
+	height: 12px !important;
+}
+
 .btn--green-transparent {
 	background-color: transparent;
 	color: var(--primary-color);
@@ -72,7 +107,6 @@ body {
 .btn--green-transparent:hover {
 	color: var(--white-color);
 	background-color: var(--primary-color);
-
 }
 
 .btn--transparent {
@@ -88,6 +122,14 @@ body {
 
 .green-color {
 	color: var(--primary-color);
+}
+
+.overflow-none {
+	overflow: hidden;
+}
+
+.overflow-default {
+	overflow: initial;
 }
 
 @media screen and (min-width: 480px) {
@@ -146,6 +188,7 @@ body {
 
 	.subtitle {
 		font-size: 32px;
+		line-height: 44px;
 	}
 
 	.description {

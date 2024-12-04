@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import sitemap from 'astro-sitemap'
 
 const HOST = 4321
@@ -19,4 +19,14 @@ export default defineConfig({
 		'/': '/main',
 	},
 	site: BASE_URL,
+	experimental: {
+		env: {
+			schema: {
+				PUBLIC_EMAIL_ACTION: envField.string({
+					context: 'client',
+					access: 'public',
+				}),
+			},
+		},
+	},
 })

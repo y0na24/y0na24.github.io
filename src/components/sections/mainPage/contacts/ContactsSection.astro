@@ -131,7 +131,7 @@ interface Props extends HTMLAttributes<'section'> {}
 		const formData = new FormData(target)
 
 		form.reset()
-		fetch(import.meta.env.PUBLIC_EMAIL_ACTION, {
+		fetch(process.env.PUBLIC_EMAIL_ACTION, {
 			method: form.method,
 			body: formData,
 			headers: {

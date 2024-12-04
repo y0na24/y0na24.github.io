@@ -19,15 +19,4 @@ export default defineConfig({
 		'/': '/main',
 	},
 	site: BASE_URL,
-	experimental: {
-		env: {
-			schema: {
-				PUBLIC_EMAIL_ACTION: envField.string({
-					context: 'client',
-					access: 'public',
-					default: import.meta.env.PUBLIC_EMAIL_ACTION,
-				}),
-			},
-		},
-	},
 })

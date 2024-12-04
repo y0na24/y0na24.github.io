@@ -67,9 +67,12 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	.button-group__btn--agreement-sm {
-		width: 208px;
-		padding-inline: 35.5px;
+		width: 100%;
 		transition: all 0.2s;
+		padding: 14px 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.button-group__btn--agreement-sm:hover {
@@ -78,8 +81,12 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	.button-group__btn--details {
-		width: 208px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 		transition: all 0.2s;
+		padding: 14px 20px;
 	}
 
 	.button-group__btn--details:hover {

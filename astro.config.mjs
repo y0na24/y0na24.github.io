@@ -25,7 +25,6 @@ export default defineConfig({
 				PUBLIC_EMAIL_ACTION: envField.string({
 					context: 'client',
 					access: 'public',
-					default: 'https://formspree.io/f/xqakdjnd',
 				}),
 			},
 		},

@@ -1,5 +1,7 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 
+interface Props extends HTMLAttributes<'ul'>{}
 ---
 
 <ul id='dialogParentNode' class:list={['options-list', Astro.props.class]}>

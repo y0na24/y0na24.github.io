@@ -39,6 +39,8 @@ interface Props extends HTMLAttributes<'section'> {}
 <script>
 	const form = document.querySelector('.contacts__form') as HTMLFormElement
 
+	console.log(import.meta.env.PUBLIC_EMAIL_ACTION)
+
 	let userData = {
 		name: '',
 		telephone: '',
@@ -131,7 +133,7 @@ interface Props extends HTMLAttributes<'section'> {}
 		const formData = new FormData(target)
 
 		form.reset()
-		fetch(process.env.PUBLIC_EMAIL_ACTION, {
+		fetch('https://formspree.io/f/xqakdjnd', {
 			method: form.method,
 			body: formData,
 			headers: {
@@ -158,12 +160,6 @@ interface Props extends HTMLAttributes<'section'> {}
 	.contacts__title {
 		text-align: center;
 		padding-top: 36px;
-	}
-
-	.contacts__btn {
-		margin-bottom: 36px;
-		font-size: 16px;
-		padding: 16px 48px;
 	}
 
 	.contacts__subtitle {

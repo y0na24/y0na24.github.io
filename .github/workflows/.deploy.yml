@@ -2,7 +2,6 @@ name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [main]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
@@ -20,11 +19,12 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
-     - name: Set PUBLIC_EMAIL_ACTION from GitHub Secrets
-       run: echo "PUBLIC_EMAIL_ACTION=${{ secrets.PUBLIC_EMAIL_ACTION }}" >> $GITHUB_ENV
+      - name: Set PUBLIC_EMAIL_ACTION from GitHub Secrets
+        run: echo "PUBLIC_EMAIL_ACTION=${{ secrets.PUBLIC_EMAIL_ACTION }}" >> $GITHUB_ENV
 
   deploy:
     needs: build

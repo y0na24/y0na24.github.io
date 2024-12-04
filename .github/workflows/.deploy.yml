@@ -23,9 +23,6 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
-      - name: Set PUBLIC_EMAIL_ACTION from GitHub Secrets
-        run: echo "PUBLIC_EMAIL_ACTION=${{ secrets.PUBLIC_EMAIL_ACTION }}" >> $GITHUB_ENV
-
   deploy:
     needs: build
     runs-on: ubuntu-latest

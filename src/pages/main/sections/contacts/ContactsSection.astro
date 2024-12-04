@@ -2,6 +2,7 @@
 import TextField from '@components/TextField.astro'
 import type { HTMLAttributes } from 'astro/types'
 import Button from 'src/shared/components/Button.astro'
+import { PUBLIC_EMAIL_ACTION } from 'astro:env/client'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
@@ -17,11 +18,7 @@ interface Props extends HTMLAttributes<'section'> {}
 			<a href='tel:+79601700759'>+7 (960) 170-07-59</a>,
 			<a href='mailto:info_altair@mail.ru'> info_altair@mail.ru</a>
 		</h2>
-		<form
-			class='contacts__form'
-			action='https://formspree.io/f/xqakdjnd'
-			method='post'
-		>
+		<form class='contacts__form' method='post'>
 			<TextField name='name' placeholder='Введите ваше имя' label='Имя' />
 			<TextField
 				name='telephone'
@@ -42,6 +39,8 @@ interface Props extends HTMLAttributes<'section'> {}
 </section>
 
 <script>
+	import { PUBLIC_EMAIL_ACTION } from 'astro:env/client'
+
 	const form = document.querySelector('.contacts__form') as HTMLFormElement
 
 	let userData = {
@@ -59,7 +58,6 @@ interface Props extends HTMLAttributes<'section'> {}
 				return true
 			},
 		})
-
 		Array.from(form.elements).forEach((element: HTMLInputElement) => {
 			element.addEventListener('change', () => {
 				userData[element.name] = element.value
@@ -135,19 +133,22 @@ interface Props extends HTMLAttributes<'section'> {}
 
 		if (isError) return
 
+		const formData = new FormData(target)
+
 		form.reset()
-		const data = new FormData(target)
-		fetch(target.action, {
+		fetch(PUBLIC_EMAIL_ACTION, {
 			method: form.method,
-			body: data,
+			body: formData,
 			headers: {
 				Accept: 'application/json',
 			},
 		})
 			.then(response => {
-				if (response.ok) {
-					cleanErrors()
+				if (!response.ok) {
+					throw new Error()
 				}
+
+				cleanErrors()
 			})
 			.catch(() => {
 				alert('Произошла ошибка при отправке формы')

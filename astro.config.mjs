@@ -25,6 +25,7 @@ export default defineConfig({
 				PUBLIC_EMAIL_ACTION: envField.string({
 					context: 'client',
 					access: 'public',
+					default: import.meta.env.PUBLIC_EMAIL_ACTION,
 				}),
 			},
 		},

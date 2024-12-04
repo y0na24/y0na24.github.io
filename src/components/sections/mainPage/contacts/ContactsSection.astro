@@ -37,8 +37,6 @@ interface Props extends HTMLAttributes<'section'> {}
 </section>
 
 <script>
-	import { PUBLIC_EMAIL_ACTION } from 'astro:env/client'
-
 	const form = document.querySelector('.contacts__form') as HTMLFormElement
 
 	let userData = {
@@ -133,7 +131,7 @@ interface Props extends HTMLAttributes<'section'> {}
 		const formData = new FormData(target)
 
 		form.reset()
-		fetch(PUBLIC_EMAIL_ACTION, {
+		fetch(import.meta.env.PUBLIC_EMAIL_ACTION, {
 			method: form.method,
 			body: formData,
 			headers: {

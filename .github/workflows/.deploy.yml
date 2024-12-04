@@ -23,16 +23,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
-        - name: Load environment variables from .env
-        run: |
-          # Проверяем наличие .env и загружаем переменные
-          if [ -f .env ]; then
-            export $(cat .env | xargs)  # Загружаем переменные окружения
-          fi
-        shell: bash
-
-      - name: Print PUBLIC_EMAIL_ACTION
-        run: echo "PUBLIC_EMAIL_ACTION=${PUBLIC_EMAIL_ACTION}
+     - name: Set PUBLIC_EMAIL_ACTION from GitHub Secrets
+       run: echo "PUBLIC_EMAIL_ACTION=${{ secrets.PUBLIC_EMAIL_ACTION }}" >> $GITHUB_ENV
 
   deploy:
     needs: build

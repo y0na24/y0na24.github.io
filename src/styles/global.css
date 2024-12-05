@@ -36,6 +36,7 @@ body {
 	font-weight: 500;
 	color: var(--white-color);
 	opacity: var(--opacity-for-light-text);
+	letter-spacing: 0.5px;
 }
 
 .title {
@@ -46,6 +47,12 @@ body {
 .subtitle {
 	font-size: 18px;
 	font-weight: 700;
+}
+
+.subtitle_xl {
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 38px;
 }
 
 .description {
@@ -155,6 +162,11 @@ body {
 		font-size: 28px;
 	}
 
+	.subtitle_xl {
+		font-size: 32px;
+		line-height: 44px;
+	}
+
 	.description {
 		font-size: 20px;
 	}
@@ -184,6 +196,12 @@ body {
 	.subtitle {
 		font-size: 32px;
 		line-height: 44px;
+	}
+
+	.subtitle_xl {
+		font-size: 40px;
+		font-weight: 700;
+		line-height: 55px;
 	}
 
 	.description {

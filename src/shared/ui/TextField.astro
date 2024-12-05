@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<'input'> {
 const { name, placeholder, label, isTextArea = false, ...props } = Astro.props
 ---
 
-<div class='textfield'>
+<div class='textfield' {...props}>
 	<label for={name}>{label}</label>
 	{
 		isTextArea ? (
@@ -25,14 +25,11 @@ const { name, placeholder, label, isTextArea = false, ...props } = Astro.props
 	.textfield {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 
 	.textfield__error {
 		color: red;
-	}
-
-	.textfield:not(:last-child) {
-		margin-bottom: 42px;
 	}
 
 	.textfield input,
@@ -43,6 +40,7 @@ const { name, placeholder, label, isTextArea = false, ...props } = Astro.props
 		outline: none;
 		font-size: 16px;
 		resize: none;
+		width: 100%;
 	}
 
 	.textfield textarea {

@@ -64,15 +64,17 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	.possibilities__btn-container {
-		display: flex;
-		justify-content: center;
 	}
 
 	.possibilities__btn {
 		padding: 24px 72px;
 		font-size: 20px;
-		margin-bottom: 36px;
 		transition: all 0.2s;
+		display: block;
+		margin: 0 auto;
+		max-width: 400px;
+		font-weight: 500;
+		line-height: 27px;
 	}
 
 	.possibilities__btn:hover {
@@ -110,11 +112,21 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	@media screen and (min-width: 1440px) {
+		.possibilities__cardList {
+			margin-bottom: 64px;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 22px;
+		}
 		.card__image--lg {
 			display: none;
 		}
 		.card__image--sm {
 			display: block;
+		}
+
+		.possibilities__btn {
+			margin-bottom: 96px;
 		}
 	}
 

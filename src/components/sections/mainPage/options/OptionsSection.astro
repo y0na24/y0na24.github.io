@@ -80,7 +80,7 @@ interface Props extends HTMLAttributes<'section'> {}
 				optionsCards.map(card => (
 					<>
 						<li class:list={['optionsCard', Astro.props.class]}>
-							<div class='flex-item flex-item--img'>
+							<div >
 								<img
 									class='optionsCard__imgSm'
 									alt={card.description}
@@ -97,8 +97,8 @@ interface Props extends HTMLAttributes<'section'> {}
 									alt={card.description}
 								/>
 							</div>
-							<div class='flex-item'>
-								<h2 class='subtitle-xl optionsCard__subtitle'>{card.title}</h2>
+							<div >
+								<h2 class='subtitle_xl optionsCard__subtitle'>{card.title}</h2>
 								<p class='light-description optionsCard__description'>
 									{card.description}
 								</p>
@@ -126,7 +126,6 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	.options__title {
-		padding-top: 50px;
 		margin-bottom: 42px;
 	}
 
@@ -213,7 +212,7 @@ interface Props extends HTMLAttributes<'section'> {}
 		.optionsCard__imgMd {
 			display: block;
 			height: 336px;
-			width: 100%;
+			min-width: 542px;
 			object-position: top;
 		}
 

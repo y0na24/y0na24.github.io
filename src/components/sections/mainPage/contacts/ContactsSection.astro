@@ -17,12 +17,14 @@ interface Props extends HTMLAttributes<'section'> {}
 			<a href='mailto:info_altair@mail.ru'> altair_tara@mail.ru</a>
 		</h2>
 		<form class='contacts__form' method='post'>
-			<TextField name='name' placeholder='Введите ваше имя' label='Имя' />
-			<TextField
-				name='telephone'
-				placeholder='Введите ваш телефон'
-				label='Телефон'
-			/>
+			<div class='contacts__fields-wrap'>
+				<TextField name='name' placeholder='Введите ваше имя' label='Имя' />
+				<TextField
+					name='telephone'
+					placeholder='Введите ваш телефон'
+					label='Телефон'
+				/>
+			</div>
 			<TextField
 				name='message'
 				placeholder='Введите сообщение'
@@ -157,7 +159,6 @@ interface Props extends HTMLAttributes<'section'> {}
 <style>
 	.contacts__title {
 		text-align: center;
-		padding-top: 36px;
 	}
 
 	.contacts__subtitle {
@@ -171,9 +172,18 @@ interface Props extends HTMLAttributes<'section'> {}
 	.contacts__form {
 		display: flex;
 		flex-direction: column;
+		gap: 32px;
 	}
 
-	.contacts__btn {
-		margin-bottom: 36px;
+	.contacts__fields-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	@media screen and (min-width: 1440px) {
+		.contacts__fields-wrap {
+			flex-direction: row;
+		}
 	}
 </style>

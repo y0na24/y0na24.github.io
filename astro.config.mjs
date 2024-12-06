@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import sitemap from 'astro-sitemap'
+import robotTxt from 'astro-robots-txt'
 
 const HOST = 4321
 const LIVE_URL = 'https://altair-tara.ru'
@@ -14,6 +15,10 @@ if (isBuild) {
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [sitemap()],
+	integrations: [
+		sitemap(),
+		robotTxt(),
+		(await import('astro-compress')).default(),
+	],
 	site: BASE_URL,
 })

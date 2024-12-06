@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets'
 import Button from './Button.astro'
 
 import logo from 'public/logo.svg'
 import burgerMenu from 'src/assets/burger-menu.svg'
 import NavList from './NavList.astro'
+import { Image } from 'astro:assets'
 ---
 
 <header class='header header__container'>
-	<Image src={logo} alt='Логотип "Альтаир"' />
+	<Image loading='lazy' src={logo} alt='Логотип "Альтаир"' />
 	<Image class='burger-menu' src={burgerMenu} alt='Навигационное меню' />
 
 	<NavList class='header__nav-list' />

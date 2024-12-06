@@ -1,10 +1,9 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { HTMLAttributes } from 'astro/types'
 import type { OptionsCard } from '@components/sections/mainPage/options/types'
 
 import cross from 'src/assets/cross.svg'
+import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'dialog'> {
 	item: OptionsCard

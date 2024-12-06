@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets'
 import Button from './Button.astro'
 
 import logo from 'public/logo.svg'
 import slash from 'src/assets/slash.svg'
 import cross from 'src/assets/cross.svg'
+import { Image } from 'astro:assets'
 ---
 
 <div class='overlay'></div>
@@ -30,11 +30,11 @@ import cross from 'src/assets/cross.svg'
 		</li>
 		<li class='sidebar__nav-item'>
 			<a href='#Партнёры'>Партнёры</a>
-			<Image src={slash} alt='Партнеры' />
+			<Image loading='lazy' src={slash} alt='Партнеры' />
 		</li>
 		<li class='sidebar__nav-item'>
 			<a href='#Мощности'>Мощности</a>
-			<Image src={slash} alt='Мощности' />
+			<Image loading='lazy' src={slash} alt='Мощности' />
 		</li>
 		<li class='sidebar__nav-item'>
 			<a href='#Контакты'>Контакты</a>

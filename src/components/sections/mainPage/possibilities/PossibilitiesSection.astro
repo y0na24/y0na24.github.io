@@ -32,7 +32,6 @@ interface Props extends HTMLAttributes<'section'> {}
 							alt={card.subtitle}
 						/>
 						<Image
-							loading='lazy'
 							class='card__image card__image--lg'
 							src={card.lgImgSrc}
 							alt={card.subtitle}
@@ -61,9 +60,6 @@ interface Props extends HTMLAttributes<'section'> {}
 
 	.possibilities__cardList {
 		margin-bottom: 42px;
-	}
-
-	.possibilities__btn-container {
 	}
 
 	.possibilities__btn {

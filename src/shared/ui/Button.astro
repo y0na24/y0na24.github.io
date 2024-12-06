@@ -8,8 +8,8 @@ interface Props extends HTMLAttributes<'button'> {
 	href?: string
 }
 
-const { variant, href, ...props } = Astro.props
-const linkHref = href ? `#${href}` : 'javascript:void(0);'
+const { variant, href, type, ...props } = Astro.props
+const linkHref = href ? `#${href}` : undefined
 ---
 
 <a

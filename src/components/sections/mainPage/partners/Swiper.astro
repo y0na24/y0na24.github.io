@@ -23,19 +23,19 @@ import rec8 from 'src/assets/recommendation-8.png'
 				<Image src={rec3} alt='Рекомендация 3' />
 			</div>
 			<div class='swiper-slide'>
-				<Image src={rec4} alt='Рекомендация 4' />
+				<Image loading='lazy' src={rec4} alt='Рекомендация 4' />
 			</div>
 			<div class='swiper-slide'>
-				<Image src={rec5} alt='Рекомендация 5' />
+				<Image loading='lazy' src={rec5} alt='Рекомендация 5' />
 			</div>
 			<div class='swiper-slide'>
-				<Image src={rec6} alt='Рекомендация 6' />
+				<Image loading='lazy' src={rec6} alt='Рекомендация 6' />
 			</div>
 			<div class='swiper-slide'>
-				<Image src={rec7} alt='Рекомендация 7' />
+				<Image loading='lazy' src={rec7} alt='Рекомендация 7' />
 			</div>
 			<div class='swiper-slide'>
-				<Image src={rec8} alt='Рекомендация 8' />
+				<Image loading='lazy' src={rec8} alt='Рекомендация 8' />
 			</div>
 		</div>
 		<div class='swiper-button-prev'></div>
@@ -90,18 +90,20 @@ import rec8 from 'src/assets/recommendation-8.png'
 	</div>
 </div>
 
-<link
-	rel='stylesheet'
-	href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'
-/>
-<script
-	is:inline
-	src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'></script>
+<script>
+	import { Swiper } from 'swiper'
 
-<script is:inline>
+	import { Navigation, Pagination } from 'swiper/modules'
+
+	import 'swiper/css'
+	import 'swiper/css/navigation'
+	import 'swiper/css/pagination'
+
 	const swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		spaceBetween: 10,
+
+		modules: [Navigation, Pagination],
 
 		pagination: {
 			el: '.swiper-pagination',
@@ -126,7 +128,7 @@ import rec8 from 'src/assets/recommendation-8.png'
 
 	const swiperSlides = document.querySelectorAll('.swiper-slide')
 	swiperSlides.forEach(function (slide) {
-		slide.addEventListener('click', function (e) {
+		slide.addEventListener('click', function (e: any) {
 			window.open(e.target.src, '_blank')
 		})
 	})
@@ -168,9 +170,11 @@ import rec8 from 'src/assets/recommendation-8.png'
 		display: block;
 	}
 
-	.swiper-slide Image {
+	.swiper-slide img {
 		cursor: pointer;
+		height: 100%;
 	}
+
 	.swiper-button-next,
 	.swiper-button-prev {
 		display: none;

@@ -3,7 +3,6 @@ import type { HTMLAttributes } from 'astro/types'
 import square from 'src/assets/square.svg'
 import territory from 'src/assets/territory.svg'
 import equipment from 'src/assets/equipment-park.svg'
-import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
@@ -23,20 +22,19 @@ interface Props extends HTMLAttributes<'section'> {}
 		</p>
 		<ul class='capacity__list'>
 			<li class='capacity__item'>
-				<Image src={square} alt='Проиводственная площадь' />
-				<Image alt='Производственная площадь' src={square} />
+				<img src={square.src} alt='Проиводственная площадь' />
 				<p class='capacity__item-text subtitle'>
 					Производственная площадь: 2600 кв.м.
 				</p>
 			</li>
 			<li class='capacity__item'>
-				<Image src={territory} alt='Прилегающая территория' />
+				<img src={territory.src} alt='Прилегающая территория' />
 				<p class='capacity__item-text subtitle'>
 					Прилегающая территория: 0,5 гектара
 				</p>
 			</li>
 			<li class='capacity__item'>
-				<Image src={equipment} alt='Парк оборудования' />
+				<img src={equipment.src} alt='Парк оборудования' />
 				<p class='capacity__item-text subtitle'>
 					Парк оборудования: для выполнения сложных задач
 				</p>

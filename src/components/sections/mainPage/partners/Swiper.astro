@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import rec1 from 'src/assets/recommendation-1.png'
 import rec2 from 'src/assets/recommendation-2.png'
 import rec3 from 'src/assets/recommendation-3.png'
@@ -13,28 +14,28 @@ import rec8 from 'src/assets/recommendation-8.png'
 	<div class='swiper-container'>
 		<div class='swiper-wrapper ui-swiper'>
 			<div class='swiper-slide'>
-				<img src={rec1.src} alt='Рекомендация 1' />
+				<Image src={rec1} alt='Рекомендация 1' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec2.src} alt='Рекомендация 2' />
+				<Image src={rec2} alt='Рекомендация 2' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec3.src} alt='Рекомендация 3' />
+				<Image src={rec3} alt='Рекомендация 3' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec4.src} alt='Рекомендация 4' />
+				<Image src={rec4} alt='Рекомендация 4' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec5.src} alt='Рекомендация 5' />
+				<Image src={rec5} alt='Рекомендация 5' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec6.src} alt='Рекомендация 6' />
+				<Image src={rec6} alt='Рекомендация 6' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec7.src} alt='Рекомендация 7' />
+				<Image src={rec7} alt='Рекомендация 7' />
 			</div>
 			<div class='swiper-slide'>
-				<img src={rec8.src} alt='Рекомендация 8' />
+				<Image src={rec8} alt='Рекомендация 8' />
 			</div>
 		</div>
 		<div class='swiper-button-prev'></div>
@@ -167,7 +168,7 @@ import rec8 from 'src/assets/recommendation-8.png'
 		display: block;
 	}
 
-	.swiper-slide img {
+	.swiper-slide Image {
 		cursor: pointer;
 	}
 	.swiper-button-next,
@@ -227,7 +228,7 @@ import rec8 from 'src/assets/recommendation-8.png'
 		height: 24px;
 	}
 
-	.close img svg .swiper-pagination {
+	.close Image svg .swiper-pagination {
 		position: relative;
 		bottom: 10px;
 		text-align: center;

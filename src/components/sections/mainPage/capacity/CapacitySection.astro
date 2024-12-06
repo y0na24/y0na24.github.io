@@ -3,11 +3,16 @@ import type { HTMLAttributes } from 'astro/types'
 import square from 'src/assets/square.svg'
 import territory from 'src/assets/territory.svg'
 import equipment from 'src/assets/equipment-park.svg'
+import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
 
-<section id="Мощности" class:list={['capacity', Astro.props.class]} {...Astro.props}>
+<section
+	id='Мощности'
+	class:list={['capacity', Astro.props.class]}
+	{...Astro.props}
+>
 	<div class='container'>
 		<h2 class='title capacity__title'>Наши мощности</h2>
 		<p class='description capacity__description'>
@@ -18,19 +23,20 @@ interface Props extends HTMLAttributes<'section'> {}
 		</p>
 		<ul class='capacity__list'>
 			<li class='capacity__item'>
-				<img src={square.src} alt='Проиводственная площадь' />
+				<Image src={square} alt='Проиводственная площадь' />
+				<Image alt='Производственная площадь' src={square} />
 				<p class='capacity__item-text subtitle'>
 					Производственная площадь: 2600 кв.м.
 				</p>
 			</li>
 			<li class='capacity__item'>
-				<img src={territory.src} alt='Прилегающая территория' />
+				<Image src={territory} alt='Прилегающая территория' />
 				<p class='capacity__item-text subtitle'>
 					Прилегающая территория: 0,5 гектара
 				</p>
 			</li>
 			<li class='capacity__item'>
-				<img src={equipment.src} alt='Парк оборудования' />
+				<Image src={equipment} alt='Парк оборудования' />
 				<p class='capacity__item-text subtitle'>
 					Парк оборудования: для выполнения сложных задач
 				</p>

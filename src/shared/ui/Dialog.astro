@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+
 import type { HTMLAttributes } from 'astro/types'
 import type { OptionsCard } from '@components/sections/mainPage/options/types'
 
@@ -16,9 +18,9 @@ const {
 <dialog id='dialog' data-dialog=`${title}`>
 	<div class='dialog__container'>
 		<button class='closeDialog-btn' data-closeDialogBtn=`${title}`>
-			<img src={cross.src} alt='Закрыть' />
+			<Image src={cross} alt='Закрыть' />
 		</button>
-		<img class='dialog-img' src={smImgSrc.src} alt=`${description}` />
+		<Image class='dialog-img' src={smImgSrc} alt=`${description}` />
 		<div class='dialog-right-block' style='padding: 0;'>
 			<h2 class='dialog-subtitle'>{title}</h2>
 			{

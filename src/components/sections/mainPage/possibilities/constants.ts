@@ -21,32 +21,32 @@ import handshakeLg from 'src/assets/handshake-big.png'
 export const possibilitesCards: CardItem[] = [
 	{
 		subtitle: 'Полный цикл производства военной и промышленной тары',
-		smImgSrc: fullCycleImgSm.src,
-		lgImgSrc: fullCycleImglg.src,
+		smImgSrc: fullCycleImgSm,
+		lgImgSrc: fullCycleImglg,
 	},
 	{
 		subtitle: 'Разработка чертежей по ГОСТу и подбор материалов',
-		smImgSrc: drawingDevelopmentSm.src,
-		lgImgSrc: drawingDevelopmentLg.src,
+		smImgSrc: drawingDevelopmentSm,
+		lgImgSrc: drawingDevelopmentLg,
 	},
 	{
 		subtitle: 'Ведение проектов от концепции до поставки продукции заказчику',
-		smImgSrc: supplymentSm.src,
-		lgImgSrc: supplymentLg.src,
+		smImgSrc: supplymentSm,
+		lgImgSrc: supplymentLg,
 	},
 	{
 		subtitle: 'Комплексная фумигация химическими и термическими методами',
-		smImgSrc: fumigationSm.src,
-		lgImgSrc: fumigationLg.src,
+		smImgSrc: fumigationSm,
+		lgImgSrc: fumigationLg,
 	},
 	{
 		subtitle: 'Собственный парк современного оборудования',
-		smImgSrc: modernEquipmentSm.src,
-		lgImgSrc: modernEquipmentLg.src,
+		smImgSrc: modernEquipmentSm,
+		lgImgSrc: modernEquipmentLg,
 	},
 	{
 		subtitle: 'СМК и ОКВЭД подтверждают готовность к производству тары',
-		smImgSrc: handshakeSm.src,
-		lgImgSrc: handshakeLg.src,
+		smImgSrc: handshakeSm,
+		lgImgSrc: handshakeLg,
 	},
 ]

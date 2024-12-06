@@ -21,6 +21,7 @@ import armyBoxSm from 'src/assets/voennaya-tara-480.png'
 import armyBoxLg from 'src/assets/voennaya-tara-768.png'
 import armyBoxMd from 'src/assets/voennaya-tara-1440.png'
 import Button from 'src/shared/ui/Button.astro'
+import { Image } from 'astro:assets'
 
 const optionsCards: OptionsCard[] = [
 	{
@@ -80,24 +81,24 @@ interface Props extends HTMLAttributes<'section'> {}
 				optionsCards.map(card => (
 					<>
 						<li class:list={['optionsCard', Astro.props.class]}>
-							<div >
-								<img
+							<div>
+								<Image
 									class='optionsCard__imgSm'
 									alt={card.description}
-									src={card.smImgSrc.src}
+									src={card.smImgSrc}
 								/>
-								<img
+								<Image
 									class='optionsCard__imgMd'
-									src={card.mdImgSrc.src}
+									src={card.mdImgSrc}
 									alt={card.description}
 								/>
-								<img
+								<Image
 									class='optionsCard__imgLg'
-									src={card.lgImgSrc.src}
+									src={card.lgImgSrc}
 									alt={card.description}
 								/>
 							</div>
-							<div >
+							<div>
 								<h2 class='subtitle_xl optionsCard__subtitle'>{card.title}</h2>
 								<p class='light-description optionsCard__description'>
 									{card.description}

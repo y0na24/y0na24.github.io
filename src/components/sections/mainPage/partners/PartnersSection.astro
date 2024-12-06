@@ -7,6 +7,7 @@ import metall from 'src/assets/partner-metall.svg'
 import sotex from 'src/assets/partner-sotex.svg'
 import membranium from 'src/assets/partner-membranium.svg'
 import elkab from 'src/assets/partner-elkab.svg'
+import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
@@ -19,33 +20,13 @@ interface Props extends HTMLAttributes<'section'> {}
 	<div class='container'>
 		<h2 class='title partners__title'>Наши партнёры</h2>
 		<div class='partners__grid'>
-			<img
-				loading='lazy'
-				class='partner-1'
-				src={company76.src}
-				alt='Компания 76'
-			/>
-			<img loading='lazy' class='partner-2' src={dkba.src} alt='Дкба' />
-			<img loading='lazy' class='partner-3' src={sotex.src} alt='Sotex' />
-			<img
-				loading='lazy'
-				class='red-img partner-4'
-				src={red.src}
-				alt='Красное сормово'
-			/>
-			<img
-				loading='lazy'
-				class='metall-img partner-5'
-				src={metall.src}
-				alt='Металл'
-			/>
-			<img
-				loading='lazy'
-				class='partner-6'
-				src={membranium.src}
-				alt='Мембраниум'
-			/>
-			<img loading='lazy' class='partner-7' src={elkab.src} alt='Элкаб' />
+			<Image class='partner-1' src={company76} alt='Компания 76' />
+			<Image class='partner-2' src={dkba} alt='Дкба' />
+			<Image class='partner-3' src={sotex} alt='Sotex' />
+			<Image class='red-img partner-4' src={red} alt='Красное сормово' />
+			<Image class='metall-img partner-5' src={metall} alt='Металл' />
+			<Image class='partner-6' src={membranium} alt='Мембраниум' />
+			<Image class='partner-7' src={elkab} alt='Элкаб' />
 		</div>
 	</div>
 </section>

@@ -5,6 +5,7 @@ import PossibilityList from './PossibilityList.astro'
 import Button from 'src/shared/ui/Button.astro'
 
 import { possibilitesCards } from './constants'
+import { Image } from 'astro:assets'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
@@ -25,13 +26,12 @@ interface Props extends HTMLAttributes<'section'> {}
 			{
 				possibilitesCards.map(card => (
 					<li class='card'>
-						<img
-							loading='lazy'
+						<Image
 							class='card__image card__image--sm'
 							src={card.smImgSrc}
 							alt={card.subtitle}
 						/>
-						<img
+						<Image
 							loading='lazy'
 							class='card__image card__image--lg'
 							src={card.lgImgSrc}

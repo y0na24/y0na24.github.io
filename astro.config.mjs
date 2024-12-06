@@ -15,8 +15,5 @@ if (isBuild) {
 // https://astro.build/config
 export default defineConfig({
 	integrations: [sitemap()],
-	redirects: {
-		'/': '/main',
-	},
 	site: BASE_URL,
 })

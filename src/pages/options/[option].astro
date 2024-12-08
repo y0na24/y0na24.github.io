@@ -1,0 +1,42 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro'
+import Header from 'src/shared/ui/Header.astro'
+
+export function getStaticPaths() {
+	return [
+		{
+			params: { option: 'wooden-box' },
+			props: { subtitle: 'Деревянные ящики' },
+		},
+		{
+			params: { option: 'voennaya-tara' },
+			props: { subtitle: 'Военная тара' },
+		},
+		{
+			params: { option: 'slab' },
+			props: { subtitle: 'Тара из плитных материалов: фанера, OSB, МДФ' },
+		},
+		{
+			params: { option: 'plywood' },
+			props: { subtitle: 'Фанерные кабельные барабаны' },
+		},
+	]
+}
+
+const { subtitle } = Astro.props
+---
+
+<BaseLayout title=`Альтаир | ${subtitle}`>
+	<section class='option__section'>
+		<div class='container'>
+			<Header class='option__header' />
+			<h1 class='title'>{subtitle}</h1>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.option__header {
+		margin-bottom: 20px;
+	}
+</style>

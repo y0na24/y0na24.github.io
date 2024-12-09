@@ -105,15 +105,13 @@ interface Props extends HTMLAttributes<'section'> {}
 								</p>
 								<Button
 									class='optionsCard__btn'
-									id={`openDialog-btn`}
-									data-dialogType={`${card.title}`}
 									variant='transparent-green'
+									customHref='/options'
 								>
-									Подробнее
+									Посмотреть
 								</Button>
 							</div>
 						</li>
-						<Dialog item={card} />
 					</>
 				))
 			}

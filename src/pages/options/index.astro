@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets'
+import BaseLayout from 'src/layouts/BaseLayout.astro'
+import Header from 'src/shared/ui/Header.astro'
+
+import woodenBox from 'src/assets/woodenBox.jpg'
+import woodenBox2 from 'src/assets/woodenBox-2.jpg'
+import woodenBox3 from 'src/assets/woodenBox-3.jpg'
+import woodenBox4 from 'src/assets/woodenBox-4.jpg'
+import plywood from 'src/assets/plywood.jpg'
+import plywood2 from 'src/assets/plywood-2.jpg'
+import voennayaTara from 'src/assets/voennayaTara.jpg'
+import voennayaTara2 from 'src/assets/voennayaTara-2.jpg'
+import voennayaTara3 from 'src/assets/voennayaTara-3.jpg'
+import voennayaTara4 from 'src/assets/voennayaTara-4.jpg'
+import voennayaTara5 from 'src/assets/voennayaTara-5.jpg'
+
+
+const options = [
+	{
+		images: [woodenBox, woodenBox2, woodenBox3, woodenBox4],
+		alt: 'Деревянный ящик',
+		subtitle: 'Деревянные ящики и тара из плитных материалов: фанера, OSB, МДФ',
+		description: 'Мы накопили обширный опыт в изготовлении деревянных ящиков, используя чертежи заказчика, соблюдая все необходимые стандарты и сроки изготовления. Строгий контроль качества материала с момента заготовки древесины. Фумигация изделий для экспортных отгрузок строго по ГОСТ. По требованиям заказчика, мы готовы произвести покрасочные работы любыми видами материалов. Компания предлагает широкий ассортимент ящиков из плитных материалов, отличающихся лёгкостью и прочностью. Плитный материал обладает рядом преимуществ: он защищает груз от влаги, механических повреждений и ультрафиолетовых лучей, при этом ящики просты в использовании и транспортировке.'
+	},
+	{
+		images: [voennayaTara, voennayaTara2, voennayaTara3, voennayaTara4, voennayaTara5],
+		alt: 'Военная тара',
+		subtitle: 'Военная тара',
+		description: 'Военная тара отличается высокой прочностью и устойчивостью к механическим повреждениям, поскольку она предназначена для перевозки оружия, боеприпасов и других специфических грузов. Для её производства используются только высококачественные материалы, такие как массив сосны или фанера. Конструкция дополнительно укрепляется металлическими элементами для увеличения надёжности. Изготовление военной тары и ложементов может быть стандартным, в соответствии с ГОСТом, или индивидуальным — по запросам заказчика. Большой опыт нашей компании позволяет разработать чертежи ящиков, подобрать материалы и произвести необходимую партию строго в оговоренные сроки.'
+	},
+	{
+		images: [plywood, plywood2],
+		alt: 'Фанерные кабельные барабаны',
+		subtitle: 'Фанерные кабельные барабаны',
+		description:  'Мы предлагаем барабаны из фанеры и картона, сочетающие прочность с лёгкостью. Эти изделия компактны и экологичны, их можно использовать повторно. Мы производим барабаны различных размеров до 1500 мм, сертифицированные для экспорта, без необходимости фитосанитарной обработки.'
+	}
+]
+---
+
+<BaseLayout title=`Альтаир | Промышленная и военная тара`>
+	<section class='option__section'>
+		<div class='container'>
+			<Header class='option__header' />
+			<h1 class='title option__title'>Виды производимой тары</h1>
+				{options.map(({images, description, alt, subtitle}) => (
+					<div class="option__block">
+						<h3 class="subtitle_xl option__subtitle">{subtitle}</h3>
+					<p class="description option__description">{description}</p>
+					<ul class="option__grid">
+						{images.map(image => (
+							<li><Image class="option__image" src={image} alt={alt}/></li>
+						))}
+					</ul>
+					</div>
+				))}
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.option__header {
+		margin-bottom: 40px;
+		background-color: #bbbbbb;
+	}
+
+	.option__description {
+		font-weight: 500;
+		margin-bottom: 15px;
+	}
+
+	.option__block {
+		background-color: var(--white-color);
+	 	padding: 20px;
+		margin-bottom: 10px;
+		border-radius: var(--card-border-radius);
+	}
+
+	.option__grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 10px;
+	}
+
+	.option__card {
+		background-color: #f0f0f0;
+		padding: 20px;
+		height: 300px;
+	}
+
+	.option__image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		border-radius: var(--card-border-radius);
+	}
+
+	.option__subtitle {
+		margin-bottom: 15px;
+	}
+
+	.option__title {
+		margin-bottom: 20px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.option__grid {
+			grid-template-columns: repeat(, 1fr);
+		}
+	}
+
+	@media screen and (min-width: 1024px) {
+		.option__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media screen and (min-width: 1440px) {
+		.option__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

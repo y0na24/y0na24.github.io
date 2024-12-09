@@ -6,14 +6,15 @@ type ButtonVariant = 'green' | 'transparent' | 'transparent-green'
 interface Props extends HTMLAttributes<'button'> {
 	variant: ButtonVariant
 	href?: string
+	customHref?: string
 }
 
-const { variant, href, type, ...props } = Astro.props
+const { variant, href, customHref, type, ...props } = Astro.props
 const linkHref = href ? `#${href}` : undefined
 ---
 
 <a
-	href={linkHref}
+	href={customHref ?? linkHref}
 	class:list={[
 		'btn',
 		{

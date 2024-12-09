@@ -14,11 +14,13 @@ interface Props extends HTMLAttributes<'header'> {}
 	class:list={['header header__container', Astro.props.class]}
 	{...Astro.props}
 >
-	<Image loading='lazy' src={logo} alt='Логотип "Альтаир"' />
+	<a href='/'>
+		<Image src={logo} alt='Логотип "Альтаир"' />
+	</a>
 	<Image class='burger-menu' src={burgerMenu} alt='Навигационное меню' />
 
 	<NavList class='header__nav-list' />
-	<Button href='Контакты' class='header__contactUsBtn' variant='green'>
+	<Button customHref='/#Контакты' class='header__contactUsBtn' variant='green'>
 		<div class='header__contactUsBtn-container'>
 			<div>Связаться</div>
 			<svg

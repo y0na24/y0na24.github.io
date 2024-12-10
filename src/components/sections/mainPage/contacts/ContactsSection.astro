@@ -1,6 +1,9 @@
 ---
 import TextField from 'src/shared/ui/TextField.astro'
 import type { HTMLAttributes } from 'astro/types'
+import { Image } from 'astro:assets'
+
+import tgLogo from 'src/assets/tg.svg'
 
 interface Props extends HTMLAttributes<'section'> {}
 ---
@@ -13,8 +16,11 @@ interface Props extends HTMLAttributes<'section'> {}
 	<div class='container contacts__container'>
 		<h2 class='title contacts__title'>Свяжитесь с нами</h2>
 		<h2 class='subtitle-xl contacts__subtitle'>
-			<a href='tel:+79601700759'>+7 (960) 170-07-59</a>,
-			<a href='mailto:info_altair@mail.ru'> altair_tara@mail.ru</a>
+			<a href='tel:+79601700759'>+7 (960) 170-07-59,</a>
+			<a href='mailto:altair_tara@mail.ru'> altair_tara@mail.ru,</a>
+			<a href='https://t.me/y0na24'
+				><Image width={48} height={48} src={tgLogo} alt='Телеграмм' /></a
+			>
 		</h2>
 		<form class='contacts__form' method='post'>
 			<div class='contacts__fields-wrap'>
@@ -162,6 +168,10 @@ interface Props extends HTMLAttributes<'section'> {}
 	}
 
 	.contacts__subtitle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
 		text-align: center;
 		margin-bottom: 42px;
 	}

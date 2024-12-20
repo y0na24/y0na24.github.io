@@ -22,7 +22,10 @@ const { title } = Astro.props
 			name='keywords'
 			content='Производство военной тары, Промышленная тара, Тара для военной техники, Тара для промышленного оборудования, Деревянные ящики для военной техники, Упаковка для боеприпасов и оружия, Тара для ракетной техники, Упаковка для авиационного оборудования, Транспортная тара для химической продукции, Производитель промышленной тары, Герметичные контейнеры для оборудования, Тара для электрооборудования, Тара для пивоваренной продукции, Производство тары для оборонной промышленности, Изготовление металлических контейнеров, Деревянные ящики для перевозки продукции, Упаковка для пищевой промышленности, СМК и ОКВЭД производство тары, Высококачественная промышленная тара'
 		/>
-		<meta property='og:url' content='https://altair-tara.ru' />
+		<meta
+			property='og:url'
+			content='https://altair-tara.ru/proizvodstvo-tary-dlya-voennoy-tekhniki'
+		/>
 		<meta property='og:locale' content='ru_RU' />
 		<meta
 			property='og:site_name'
@@ -36,7 +39,7 @@ const { title } = Astro.props
 		/>
 		<meta
 			name='description'
-			content='Компания «Альтаир» — производитель высококачественной военной и промышленной тары, предоставляющий решения для упаковки и транспортировки военной техники, оборудования и боеприпасов. Мы обеспечиваем полный цикл: от разработки до доставки.'
+			content='На странице представлена информация о производстве специализированной тары для военной техники и промышленности. Мы изготавливаем высококачественные металлические и деревянные контейнеры для защиты и транспортировки военной продукции.'
 		/>
 		<title>
 			{
@@ -52,22 +55,28 @@ const { title } = Astro.props
 		<link rel='preload' as='image' href={hero1440.src} />
 		<link rel='preload' as='image' href={hero1920.src} />
 
-		<script type="application/ld+json">
+		<script type='application/ld+json'>
 			{
 				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "Альтаир",
-				"url": "https://altair-tara.ru",
-				"logo": "/altair.svg",
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"telephone": "+7-123-456-7890",
-					"contactType": "customer service",
-					"areaServed": "RU",
-					"availableLanguage": "Russian"
+				"@type": "Product",
+				"name": "Тара для военной техники и промышленности",
+				"description": "Высококачественная тара для транспортировки и защиты военной техники, произведенная компанией «Альтаир». Герметичные и безопасные контейнеры для перевозки боеприпасов, оружия и прочего оборудования.",
+				"image": "/src/assets/manufacture-1920.webp",
+				"url": "https://altair-tara.ru/proizvodstvo-tary-dlya-voennoy-tekhniki",
+				"brand": {
+					"@type": "Brand",
+					"name": "Альтаир"
+				},
+				"offers": {
+					"@type": "Offer",
+					"url": "https://altair-tara.ru/proizvodstvo-tary-dlya-voennoy-tekhniki",
+					"priceCurrency": "RUB",
+					"price": "по запросу",
+					"itemCondition": "https://schema.org/NewCondition",
+					"availability": "https://schema.org/InStock"
 				}
 			}
-			</script>
+		</script>
 	</head>
 	<body class='wrapper'>
 		<slot />

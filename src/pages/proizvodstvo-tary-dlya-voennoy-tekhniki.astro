@@ -14,6 +14,7 @@ import voennayaTara2 from 'src/assets/voennayaTara-2.jpg'
 import voennayaTara3 from 'src/assets/voennayaTara-3.jpg'
 import voennayaTara4 from 'src/assets/voennayaTara-4.jpg'
 import voennayaTara5 from 'src/assets/voennayaTara-5.jpg'
+import OptionsLayout from 'src/layouts/OptionsLayout.astro'
 
 const options = [
 	{
@@ -46,7 +47,7 @@ const options = [
 ]
 ---
 
-<BaseLayout title=`Альтаир | Промышленная и военная тара`>
+<OptionsLayout>
 	<section class='option__section'>
 		<div class='container'>
 			<Header class='option__header' />
@@ -68,7 +69,7 @@ const options = [
 			}
 		</div>
 	</section>
-</BaseLayout>
+</OptionsLayout>
 
 <style>
 	.option__header {

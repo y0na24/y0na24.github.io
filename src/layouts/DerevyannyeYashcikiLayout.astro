@@ -34,7 +34,7 @@ const { title, description, path } = Astro.props
 		<meta name='robots' content='index, follow' />
 		<meta
 			property='og:title'
-			content={title ||
+			content={`${title} | Альтаир` ||
 				'Альтаир | Производство тары для промышленности и военной техники'}
 		/>
 		<meta
@@ -44,7 +44,7 @@ const { title, description, path } = Astro.props
 		/>
 		<title>
 			{
-				title ||
+				`${title} | Альтаир` ||
 					'Альтаир | Производство тары для промышленности и военной техники'
 			}
 		</title>
@@ -60,17 +60,17 @@ const { title, description, path } = Astro.props
 			{
 				"@context": "https://schema.org",
 				"@type": "Product",
-				"name": "Тара для военной техники и промышленности",
+				"name": "Деревянные ящики",
 				"description": "Высококачественная тара для транспортировки и защиты военной техники, произведенная компанией «Альтаир». Герметичные и безопасные контейнеры для перевозки боеприпасов, оружия и прочего оборудования.",
 				"image": "/src/assets/manufacture-1920.webp",
-				"url": "https://altair-tara.ru/proizvodstvo-tary-dlya-voennoy-tekhniki",
+				"url": "https://altair-tara.ru/derevyannye-yashchiki",
 				"brand": {
 					"@type": "Brand",
 					"name": "Альтаир"
 				},
 				"offers": {
 					"@type": "Offer",
-					"url": "https://altair-tara.ru/proizvodstvo-tary-dlya-voennoy-tekhniki",
+					"url": "https://altair-tara.ru/derevyannye-yashchiki",
 					"priceCurrency": "RUB",
 					"price": "по запросу",
 					"itemCondition": "https://schema.org/NewCondition",

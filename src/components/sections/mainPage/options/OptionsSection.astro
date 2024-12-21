@@ -23,7 +23,7 @@ import armyBoxMd from 'src/assets/voennaya-tara-1440.png'
 import Button from 'src/shared/ui/Button.astro'
 import { Image } from 'astro:assets'
 
-const optionsCards: OptionsCard[] = [
+const optionsCards = [
 	{
 		description:
 			'Мы предлагаем барабаны из фанеры и картона, сочетающие прочность с лёгкостью. Эти изделия компактны и экологичны, их можно использовать повторно.',
@@ -33,6 +33,7 @@ const optionsCards: OptionsCard[] = [
 		title: 'Фанерные кабельные барабаны',
 		detailedDescription:
 			'Мы производим барабаны различных размеров до 1500 мм, сертифицированные для экспорта, без необходимости фитосанитарной обработки.',
+		path: '/derevyannye-yashchiki',
 	},
 	{
 		description:
@@ -43,6 +44,7 @@ const optionsCards: OptionsCard[] = [
 		lgImgSrc: woodenBoxLg,
 		mdImgSrc: woodenBoxMd,
 		title: 'Тара из плитных материалов: фанера, OSB, МДФ',
+		path: '/derevyannye-yashchiki',
 	},
 	{
 		description:
@@ -53,6 +55,7 @@ const optionsCards: OptionsCard[] = [
 		title: 'Производство деревянных ящиков: прочность и надёжность',
 		detailedDescription:
 			'Строгий контроль качества материала с момента заготовки древесины. Фумигация изделий для экспортных отгрузок строго по Гост. По требованиям заказчика, мы готовы произвести покрасочные работы любыми видами материалов. ',
+		path: '/derevyannye-yashchiki',
 	},
 	{
 		description:
@@ -63,6 +66,7 @@ const optionsCards: OptionsCard[] = [
 		title: 'Военная тара',
 		detailedDescription:
 			'Для её производства используются только высококачественные материалы, такие как массив сосны или фанера. Конструкция дополнительно укрепляется металлическими элементами для увеличения надёжности. Изготовление военной тары и ложементов может быть стандартным, в соответствии с ГОСТом, или индивидуальным — по запросам заказчика. Большой опыт нашей компании позволяет разработать чертежи ящиков, подобрать материалы и произвести необходимую партию строго в оговоренные сроки.',
+		path: '/voennaya-tara',
 	},
 ]
 
@@ -106,7 +110,7 @@ interface Props extends HTMLAttributes<'section'> {}
 								<Button
 									class='optionsCard__btn'
 									variant='transparent-green'
-									customHref='/proizvodstvo-tary-dlya-voennoy-tekhniki'
+									customHref={card.path}
 								>
 									Посмотреть
 								</Button>

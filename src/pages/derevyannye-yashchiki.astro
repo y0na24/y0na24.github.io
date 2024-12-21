@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import BaseLayout from 'src/layouts/BaseLayout.astro'
 import Header from 'src/shared/ui/Header.astro'
 
 import woodenBox from 'src/assets/woodenBox.jpg'
@@ -9,13 +8,8 @@ import woodenBox3 from 'src/assets/woodenBox-3.jpg'
 import woodenBox4 from 'src/assets/woodenBox-4.jpg'
 import plywood from 'src/assets/plywood.jpg'
 import plywood2 from 'src/assets/plywood-2.jpg'
-import voennayaTara from 'src/assets/voennayaTara.jpg'
-import voennayaTara2 from 'src/assets/voennayaTara-2.jpg'
-import voennayaTara3 from 'src/assets/voennayaTara-3.jpg'
-import voennayaTara4 from 'src/assets/voennayaTara-4.jpg'
-import voennayaTara5 from 'src/assets/voennayaTara-5.jpg'
-import OptionsLayout from 'src/layouts/OptionsLayout.astro'
 import BurgerSidebar from 'src/shared/ui/BurgerSidebar.astro'
+import DerevyannyeYashcikiLayout from 'src/layouts/DerevyannyeYashcikiLayout.astro'
 
 const options = [
 	{
@@ -24,19 +18,7 @@ const options = [
 		subtitle: 'Деревянные ящики и тара из плитных материалов: фанера, OSB, МДФ',
 		description:
 			'Мы накопили обширный опыт в изготовлении деревянных ящиков, используя чертежи заказчика, соблюдая все необходимые стандарты и сроки изготовления. Строгий контроль качества материала с момента заготовки древесины. Фумигация изделий для экспортных отгрузок строго по ГОСТ. По требованиям заказчика, мы готовы произвести покрасочные работы любыми видами материалов. Компания предлагает широкий ассортимент ящиков из плитных материалов, отличающихся лёгкостью и прочностью. Плитный материал обладает рядом преимуществ: он защищает груз от влаги, механических повреждений и ультрафиолетовых лучей, при этом ящики просты в использовании и транспортировке.',
-	},
-	{
-		images: [
-			voennayaTara,
-			voennayaTara2,
-			voennayaTara3,
-			voennayaTara4,
-			voennayaTara5,
-		],
-		alt: 'Военная тара',
-		subtitle: 'Военная тара',
-		description:
-			'Военная тара отличается высокой прочностью и устойчивостью к механическим повреждениям, поскольку она предназначена для перевозки оружия, боеприпасов и других специфических грузов. Для её производства используются только высококачественные материалы, такие как массив сосны или фанера. Конструкция дополнительно укрепляется металлическими элементами для увеличения надёжности. Изготовление военной тары и ложементов может быть стандартным, в соответствии с ГОСТом, или индивидуальным — по запросам заказчика. Большой опыт нашей компании позволяет разработать чертежи ящиков, подобрать материалы и произвести необходимую партию строго в оговоренные сроки.',
+		path: 'derevyannye-yashchiki',
 	},
 	{
 		images: [plywood, plywood2],
@@ -46,9 +28,15 @@ const options = [
 			'Мы предлагаем барабаны из фанеры и картона, сочетающие прочность с лёгкостью. Эти изделия компактны и экологичны, их можно использовать повторно. Мы производим барабаны различных размеров до 1500 мм, сертифицированные для экспорта, без необходимости фитосанитарной обработки.',
 	},
 ]
+
+const { subtitle, description, path } = options[0]
 ---
 
-<OptionsLayout>
+<DerevyannyeYashcikiLayout
+	title={subtitle}
+	description={description}
+	path={path}
+>
 	<section class='option__section'>
 		<BurgerSidebar />
 		<div class='container'>
@@ -71,7 +59,7 @@ const options = [
 			}
 		</div>
 	</section>
-</OptionsLayout>
+</DerevyannyeYashcikiLayout>
 
 <style>
 	.option__header {

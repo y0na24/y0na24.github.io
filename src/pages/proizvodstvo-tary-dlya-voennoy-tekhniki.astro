@@ -15,6 +15,7 @@ import voennayaTara3 from 'src/assets/voennayaTara-3.jpg'
 import voennayaTara4 from 'src/assets/voennayaTara-4.jpg'
 import voennayaTara5 from 'src/assets/voennayaTara-5.jpg'
 import OptionsLayout from 'src/layouts/OptionsLayout.astro'
+import BurgerSidebar from 'src/shared/ui/BurgerSidebar.astro'
 
 const options = [
 	{
@@ -49,6 +50,7 @@ const options = [
 
 <OptionsLayout>
 	<section class='option__section'>
+		<BurgerSidebar />
 		<div class='container'>
 			<Header class='option__header' />
 			<h1 class='title option__title'>Виды производимой тары</h1>
@@ -84,15 +86,15 @@ const options = [
 
 	.option__block {
 		background-color: var(--white-color);
-		padding: 20px;
-		margin-bottom: 10px;
+		padding: 15px;
+		margin-bottom: 30px;
 		border-radius: var(--card-border-radius);
 	}
 
 	.option__grid {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
-		gap: 10px;
+		gap: 20px;
 	}
 
 	.option__card {
@@ -103,7 +105,7 @@ const options = [
 
 	.option__image {
 		width: 100%;
-		height: 400px;
+		height: 250px;
 		object-fit: cover;
 		border-radius: var(--card-border-radius);
 	}
@@ -119,6 +121,9 @@ const options = [
 	@media screen and (min-width: 768px) {
 		.option__grid {
 			grid-template-columns: repeat(1, 1fr);
+		}
+		.option__image {
+			height: 400px;
 		}
 	}
 

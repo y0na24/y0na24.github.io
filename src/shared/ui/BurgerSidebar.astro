@@ -17,31 +17,31 @@ import { Image } from 'astro:assets'
 	</div>
 	<ul class='sidebar__nav'>
 		<li class='sidebar__nav-item'>
-			<a href='#О нас'>О нас</a>
+			<a href='/#О нас'>О нас</a>
 			<Image src={slash} alt='О нас' />
 		</li>
 		<li class='sidebar__nav-item'>
-			<a href='#Возможности'>Возможности</a>
+			<a href='/#Возможности'>Возможности</a>
 			<Image src={slash} alt='Возможности' />
 		</li>
 		<li class='sidebar__nav-item'>
-			<a href='#Виды тары'>Виды тары</a>
+			<a href='/#Виды тары'>Виды тары</a>
 			<Image src={slash} alt='Виды тары' />
 		</li>
 		<li class='sidebar__nav-item'>
-			<a href='#Партнёры'>Партнёры</a>
+			<a href='/#Партнёры'>Партнёры</a>
 			<Image loading='lazy' src={slash} alt='Партнеры' />
 		</li>
 		<li class='sidebar__nav-item'>
-			<a href='#Мощности'>Мощности</a>
+			<a href='/#Мощности'>Мощности</a>
 			<Image loading='lazy' src={slash} alt='Мощности' />
 		</li>
 		<li class='sidebar__nav-item'>
-			<a href='#Контакты'>Контакты</a>
+			<a href='/#Контакты'>Контакты</a>
 			<Image src={slash} alt='Контакты' />
 		</li>
 	</ul>
-	<Button class='sidebar__btn' href='Контакты' variant='green'
+	<Button class='sidebar__btn' customHref='/#Контакты' variant='green'
 		>Оставить заявку</Button
 	>
 </div>

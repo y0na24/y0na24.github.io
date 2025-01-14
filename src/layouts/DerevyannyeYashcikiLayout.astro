@@ -20,22 +20,15 @@ const { title, description, path } = Astro.props
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
-		<meta
-			name='keywords'
-			content='Производство военной тары, Промышленная тара, Тара для военной техники, Тара для промышленного оборудования, Деревянные ящики для военной техники, Упаковка для боеприпасов и оружия, Тара для ракетной техники, Упаковка для авиационного оборудования, Транспортная тара для химической продукции, Производитель промышленной тары, Герметичные контейнеры для оборудования, Тара для электрооборудования, Тара для пивоваренной продукции, Производство тары для оборонной промышленности, Изготовление металлических контейнеров, Деревянные ящики для перевозки продукции, Упаковка для пищевой промышленности, СМК и ОКВЭД производство тары, Высококачественная промышленная тара'
-		/>
+		<meta name='keywords' content='Деревянная тара, деревянные ящики' />
 		<meta property='og:url' content={`https://altair-tara.ru/${path}`} />
 		<meta property='og:locale' content='ru_RU' />
-		<meta
-			property='og:site_name'
-			content='Альтаир | Производство тары для промышленности и военной техники'
-		/>
+		<meta property='og:site_name' content='Деревянные ящики | Альтаир' />
 		<meta property='og:type' content='website' />
 		<meta name='robots' content='index, follow' />
 		<meta
 			property='og:title'
-			content={`${title} | Альтаир` ||
-				'Альтаир | Производство тары для промышленности и военной техники'}
+			content={`${title} | Альтаир` || 'Деревянные ящики | Альтаир'}
 		/>
 		<meta
 			name='description'
@@ -51,10 +44,6 @@ const { title, description, path } = Astro.props
 		<link rel='shortcut icon' href='/altair.svg' />
 		<meta name='generator' content={Astro.generator} />
 		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link rel='preload' as='image' href={hero480.src} />
-		<link rel='preload' as='image' href={hero768.src} />
-		<link rel='preload' as='image' href={hero1440.src} />
-		<link rel='preload' as='image' href={hero1920.src} />
 
 		<script type='application/ld+json'>
 			{

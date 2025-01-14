@@ -22,14 +22,11 @@ const { title, description, path } = Astro.props
 		<meta name='viewport' content='width=device-width' />
 		<meta
 			name='keywords'
-			content='Производство военной тары, Промышленная тара, Тара для военной техники, Тара для промышленного оборудования, Деревянные ящики для военной техники, Упаковка для боеприпасов и оружия, Тара для ракетной техники, Упаковка для авиационного оборудования, Транспортная тара для химической продукции, Производитель промышленной тары, Герметичные контейнеры для оборудования, Тара для электрооборудования, Тара для пивоваренной продукции, Производство тары для оборонной промышленности, Изготовление металлических контейнеров, Деревянные ящики для перевозки продукции, Упаковка для пищевой промышленности, СМК и ОКВЭД производство тары, Высококачественная промышленная тара'
+			content='Военная тара, деревянная тара, армейская тара'
 		/>
 		<meta property='og:url' content={`https://altair-tara.ru/${path}`} />
 		<meta property='og:locale' content='ru_RU' />
-		<meta
-			property='og:site_name'
-			content='Альтаир | Производство тары для промышленности и военной техники'
-		/>
+		<meta property='og:site_name' content='Военная тара | Альтаир' />
 		<meta property='og:type' content='website' />
 		<meta name='robots' content='index, follow' />
 		<meta
@@ -40,7 +37,7 @@ const { title, description, path } = Astro.props
 		<meta
 			name='description'
 			content={description ||
-				'На странице представлена информация о производстве специализированной тары для военной техники и промышленности. Мы изготавливаем высококачественные металлические и деревянные контейнеры для защиты и транспортировки военной продукции.'}
+				'На странице представлена информация о производстве специализированной армейской тары для военной техники и промышленности. Мы изготавливаем высококачественные металлические и деревянные контейнеры для защиты и транспортировки военной продукции.'}
 		/>
 		<title>
 			{
@@ -51,17 +48,13 @@ const { title, description, path } = Astro.props
 		<link rel='shortcut icon' href='/altair.svg' />
 		<meta name='generator' content={Astro.generator} />
 		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link rel='preload' as='image' href={hero480.src} />
-		<link rel='preload' as='image' href={hero768.src} />
-		<link rel='preload' as='image' href={hero1440.src} />
-		<link rel='preload' as='image' href={hero1920.src} />
 
 		<script type='application/ld+json'>
 			{
 				"@context": "https://schema.org",
 				"@type": "Product",
 				"name": "Военная тара",
-				"description": "Высококачественная тара для транспортировки и защиты военной техники, произведенная компанией «Альтаир». Герметичные и безопасные контейнеры для перевозки боеприпасов, оружия и прочего оборудования.",
+				"description": "На странице представлена информация о производстве специализированной тары для военной техники и промышленности. Мы изготавливаем высококачественные металлические и деревянные контейнеры для защиты и транспортировки военной продукции.",
 				"image": "/src/assets/voennayaTara-6.jpg",
 				"url": "https://altair-tara.ru/voennaya-tara",
 				"brand": {

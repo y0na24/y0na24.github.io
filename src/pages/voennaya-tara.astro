@@ -22,7 +22,6 @@ const options = [
 			voennayaTara6,
 		],
 		alt: 'Военная тара',
-		subtitle: 'Военная тара',
 		description:
 			'Военная тара отличается высокой прочностью и устойчивостью к механическим повреждениям, поскольку она предназначена для перевозки оружия, боеприпасов и других специфических грузов. Для её производства используются только высококачественные материалы, такие как массив сосны или фанера. Конструкция дополнительно укрепляется металлическими элементами для увеличения надёжности. Изготовление армейской тары и ложементов может быть стандартным, в соответствии с ГОСТом, или индивидуальным — по запросам заказчика. Большой опыт нашей компании позволяет разработать чертежи ящиков, подобрать материалы и произвести необходимую партию строго в оговоренные сроки.',
 		path: 'voennaya-tara/',
@@ -62,19 +61,22 @@ const productionProcess = [
 	},
 ]
 
-const { subtitle, description, path } = options[0]
+const { description, path } = options[0]
 ---
 
-<VoennayaTaraLayout title={subtitle} description={description} path={path}>
+<VoennayaTaraLayout
+	title={'Военная тара'}
+	description={description}
+	path={path}
+>
 	<section class='option__section'>
 		<BurgerSidebar />
 		<div class='container'>
 			<Header class='option__header' />
-			<h1 class='title option__title'>Виды производимой тары</h1>
+			<h1 class='title option__title'>Военная тара</h1>
 			{
-				options.map(({ images, description, alt, subtitle }) => (
+				options.map(({ images, description, alt }) => (
 					<div class='option__block'>
-						<h3 class='subtitle_xl option__subtitle'>{subtitle}</h3>
 						<p class='description option__description'>{description}</p>
 						<ul class='option__grid'>
 							{images.map(image => (

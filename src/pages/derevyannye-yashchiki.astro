@@ -47,11 +47,12 @@ const { subtitle, description, path } = options[0]
 		<BurgerSidebar />
 		<div class='container'>
 			<Header class='option__header' />
-			<h1 class='title option__title'>Виды производимой тары</h1>
+			<h1 class='title option__title'>
+				Деревянные ящики и фанерные кабельные барабаны
+			</h1>
 			{
-				options.map(({ images, description, alt, subtitle }) => (
+				options.map(({ images, description, alt }) => (
 					<div class='option__block'>
-						<h3 class='subtitle_xl option__subtitle'>{subtitle}</h3>
 						<p class='description option__description'>{description}</p>
 						<ul class='option__grid'>
 							{images.map(image => (

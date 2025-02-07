@@ -93,25 +93,20 @@ import rec8 from 'src/assets/recommendation-8.png'
 <script>
 	import { Swiper } from 'swiper'
 
-	import { Navigation, Pagination } from 'swiper/modules'
+	import { Pagination } from 'swiper/modules'
 
 	import 'swiper/css'
-	import 'swiper/css/navigation'
 	import 'swiper/css/pagination'
 
-	const swiper = new Swiper('.swiper-container', {
+	new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		spaceBetween: 10,
 
-		modules: [Navigation, Pagination],
+		modules: [Pagination],
 
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
 		},
 		breakpoints: {
 			720: {
@@ -243,14 +238,7 @@ import rec8 from 'src/assets/recommendation-8.png'
 		left: -70px;
 	}
 
-	@media screen and (min-width: 1024px) {
-		.swiper-button-next,
-		.swiper-button-prev {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
+	@media screen and (min-width: 1500px) {
 		.swiper-pagination {
 			display: none;
 		}
